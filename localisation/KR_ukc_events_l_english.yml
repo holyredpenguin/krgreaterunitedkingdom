@@ -1,0 +1,71 @@
+﻿l_english:
+ 
+ ### Original Event ###
+ uk.1.c:0 "Lets keep our options open"
+
+ ### Combination restoration ###
+ ukc.1.t:0 "A Greater United Kingdom"
+ ukc.1.d:0 "We have liberated the homeland from the syndaclist menace, but the Isle is devastated by years of war.  Some ministers and members of the public are sugessting that we create a United Kingdom of Great Britain and Canada in order to improve stability."
+ ukc.1.a:0 "Let us unite under the King!"
+ ukc.1.b:0 "Let us remain seperate"
+
+ ### Choosing the capital ###
+ ukc.2.t:0 "A capital for the Kingdom"
+ ukc.2.desc:0 "We need to choose between the capital of Britain or the capital of Canada for our new kingdom.  If we choose London we are sure to upset the Canadian populace."
+ ukc.2.a:0 "Move the Capital to London"
+ ukc.2.b:0 "Keep the Capital on Ottawa"
+
+ ### GBR Accepts ###
+ ukc.3.t:0 "Great Britain Accepts"
+ ukc.3.d:0 "The bill to merge Canada and the United Kingdom has passed through the house of commons and has been signed into law by the king.  We are now one nation.  However, we will also need to rebuild the Island and clear out the legacy of syndaclism."
+ ukc.3.a:0 "Wonderful!"
+ 
+ ### Puppet CAF ###
+ ukc.4.t:0 "The Empire seeks closer ties"
+ ukc.4.d:0 "The British are requesting some control over some of our government.  In return, they are offering to deveolp us"
+ ukc.4.a:0 "Sure"
+ ukc.4.b:0 "Let's keep our distance"
+ 
+ ### Gibraltar Election ###
+ ukc.5.t:0 "The Empire demands a referendum"
+ ukc.5.d:0 "The British are demanding a referendum for Gibraltar to see if they will be British or Spanish"
+ ukc.5.a:0 "Sure"
+ ukc.5.b:0 "There will be no elections"
+ 
+ ### Rock Demands 1 ###
+ ukc.6.t:0 "The Spanish Refuse our Demands"
+ ukc.6.d:0 "The Spanish have refused our demands in regaurds to Gibraltar.  Diplomacy has failed, and the only way we will re-aquire the Rock is through force."
+ ukc.6.a:0 "Damn them!"
+ 
+ ### Rock Buy ###
+ ukc.7.t:0 "The Empire offers to buy Gibraltar"
+ ukc.7.d:0 ""
+ ukc.7.a:0 "Tell King Edward we accept"
+ ukc.7.b:0 "We will not sell our land to anyone"
+ 
+ ### Argentina Refuses ###
+ ukc.8.t:0 "La Plata Refuses"
+ ukc.8.d:0 "La Plata has refused our demand to return the Falkland Isalnds to us.  We will only gain our ends through force."
+ ukc.8.a:0 "They know the counsequences"
+ 
+ ### Falklands Demands ###
+ ukc.9.t:0 "The Empire Demands the Falklands"
+ ukc.9.d:0 "The British Empire is demanding that they return the Falkland Islands to them."
+ ukc.9.a:0 "Very well then"
+ ukc.9.b:0 "Never!"
+ 
+ ### Falklands Return ###
+ ukc.10.t:0 "The Return of the Falklands"
+ ukc.10.d:0 "We have recaptured the Falklands in the name of the king."
+ ukc.10.a:0 "Tell His Majesty tha the Union Jack flies over the island"
+ 
+ ### Refused Rock Demands ###
+ ukc.11.t:0 "The Spanish Refuse"
+ ukc.11.d:0 "The Spanish have refused our demands to cede Gibraltar to us.  The only way we will get our land back now is through force."
+ ukc.11.a:0 "They knew the price"
+ 
+ ### Rock Demands ###
+ ukc.12.t:0 "The Empire demands Gibraltar"
+ ukc.12.d:0 "The British have given us an ultimatum to return Gibraltar to them.  If we do not comply than they will most certantly declare war on us."
+ ukc.12.a:0 "We have no choice"
+ ukc.12.b:0 "Never!"

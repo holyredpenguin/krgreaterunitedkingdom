@@ -1,0 +1,36 @@
+﻿l_english:
+
+########################
+#New Cosmetic tags
+########################
+
+CAN_UKC_authoritarian_democrat:0 "United Kingdom of Great Britain and Canada"
+CAN_UKC_authoritarian_democrat_ADJ:0 "British"
+CAN_UKC_authoritarian_democrat_DEF:0 "the United Kingdom"
+CAN_UKC_market_liberal:0 "United Kingdom of Great Britain and Canada"
+CAN_UKC_market_liberal_ADJ:0 "British"
+CAN_UKC_market_liberal_DEF:0 "the United Kingdom"
+CAN_UKC_national_populist:0 "United Kingdom of Great Britain and Canada"
+CAN_UKC_national_populist_ADJ:0 "British"
+CAN_UKC_national_populist_DEF:0 "the United Kingdom"
+CAN_UKC_paternal_autocrat:0 "United Kingdom of Great Britain and Canada"
+CAN_UKC_paternal_autocrat_ADJ:0 "British"
+CAN_UKC_paternal_autocrat_DEF:0 "the United Kingdom"
+CAN_UKC_social_conservative:0 "United Kingdom of Great Britain and Canada"
+CAN_UKC_social_conservative_ADJ:0 "British"
+CAN_UKC_social_conservative_DEF:0 "the United Kingdom"
+CAN_UKC_social_democrat:0 "United Kingdom of Great Britain and Canada"
+CAN_UKC_social_democrat_ADJ:0 "British"
+CAN_UKC_social_democrat_DEF:0 "the United Kingdom"
+CAN_UKC_social_liberal:0 "United Kingdom of Great Britain and Canada"
+CAN_UKC_social_liberal_ADJ:0 "British"
+CAN_UKC_social_liberal_DEF:0 "the United Kingdom"
+CAN_UKC_radical_socialist:0 "Union of Great Britain and Canada"
+CAN_UKC_radical_socialist_ADJ:0 "British"
+CAN_UKC_radical_socialist_DEF:0 "the British Union"
+CAN_UKC_syndicalist:0 "Union of Great Britain and Canada"
+CAN_UKC_syndicalist_ADJ:0 "British"
+CAN_UKC_syndicalist_DEF:0 "the British Union"
+CAN_UKC_totalist:0 "Union of Great Britain and Canada"
+CAN_UKC_totalist_ADJ:0 "British"
+CAN_UKC_totalist_DEF:0 "the British Union"

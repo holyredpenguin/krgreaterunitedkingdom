@@ -1,0 +1,7 @@
+spriteTypes = {
+
+	SpriteType = {
+		name = "tex_aus"
+		texturefile = "gfx/interface/goals/tex_aus.dds"
+	}
+}

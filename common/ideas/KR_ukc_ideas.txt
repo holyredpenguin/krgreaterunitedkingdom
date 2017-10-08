@@ -1,0 +1,191 @@
+ideas = {
+	
+	country = {
+		british_austerity_idea = {
+			
+			allowed = {
+				always = no
+			}
+			
+			removal_cost = -1
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = generic_goods_red_bonus
+			
+			modifier = {
+				consumer_goods_factor = -0.05
+			}
+		}
+		
+		british_fighter_discount = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			picture = generic_air_bonus
+
+			removal_cost = -1
+			
+			equipment_bonus = {
+				fighter_equipment = {
+					build_cost_ic = -0.1 instant = yes
+				}
+			}
+		}
+		
+		british_arms_discount = {
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+
+			removal_cost = -1
+
+			picture = generic_infantry_bonus
+			
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.1 instant = yes
+				}
+			}
+		}
+		
+		british_convoy_discount = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+
+			picture = generic_navy_bonus
+			
+			equipment_bonus = {
+				destroyer = {
+					build_cost_ic = -0.1 instant = yes
+				}
+				convoy = {
+					build_cost_ic = -0.1 instant = yes
+				}
+			}
+		}
+		
+		ENG_fisher_focus = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_navy_bonus
+			
+			equipment_bonus = {
+
+				capital_ship = {
+					build_cost_ic = -0.3 instant = yes
+				}
+				carrier = {
+					build_cost_ic = -0.3 instant = yes
+				}
+				screen_ship = {
+					build_cost_ic = -0.3 instant = yes
+				}
+				submarine = {
+					build_cost_ic = -0.3 instant = yes
+				}
+			}
+		}
+		
+		ENG_rule_the_waves = {
+			picture = generic_navy_bonus
+			allowed = {
+				always = no
+			}
+			modifier = {
+				naval_speed_factor = 0.25
+				navy_max_range_factor = 0.25
+				navy_submarine_detection_factor = 0.25
+				navy_anti_air_attack_factor = 0.25
+				amphibious_invasion = 0.25
+			}
+		}
+		
+		wartime_industry_focus = {
+			picture = generic_local_self_management
+			allowed = {
+				always = no
+			}
+			modifier = {
+				industry_free_repair_factor = 1
+			}
+		}
+		
+		rock_payments = {
+			picture = generic_goods_red_bonus
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				consumer_goods_factor = -0.10
+			}
+		}
+		
+		state_company = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = can_defence_of_canada_regulations_fascism
+			
+			modifier = {
+				global_building_slots_factor = 0.10
+				production_speed_industrial_complex_factor = 0.1
+				unity_factor = -0.05
+			}
+		}
+		
+		commie_council = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = can_defence_of_canada_regulations_communism
+			
+			modifier = {
+				conscription_factor = 0.05
+				consumer_goods_factor = 0.02
+				army_core_defence_factor = 0.2
+				army_core_attack_factor = 0.2
+			}
+		}
+	}
+}
