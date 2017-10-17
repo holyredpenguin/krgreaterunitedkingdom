@@ -1,0 +1,2716 @@
+###########################
+# UKC Focus Tree
+###########################
+
+focus_tree = {
+	id = greateruk_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = UKC
+		}
+	}
+	default = no
+
+	##########################################
+	###United Kingdom of GB and UKC Focuses###
+	##########################################
+	
+	focus = {# Form the Kingdom
+		id = formthekingdom
+		icon = GFX_focus_AST_never_gallipoli
+		prerequisite = {  }
+		x = 26
+		y = 0
+		available = {
+			
+		}
+		cost = 0
+		ai_will_do = {
+			factor = 0
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+	#Focus for - The Royal Army
+	focus = {
+		id =theroyalarmy
+		icon =GFX_focus_generic_commonwealth_build_infantry
+		x =12
+		y = 1
+		mutually_exclusive = {}
+		prerequisite = { focus = formthekingdom }
+		available = {  }
+		cost = 10
+		available_if_capitulated = yes 
+		completion_reward = {
+			army_experience = 100
+		}
+	}
+
+#Focus for - The British Motorcar Company
+	focus = {
+		id =thebritishmotorcarcompany
+		icon =GFX_goal_generic_army_motorized
+		x =10
+		y = 2
+		mutually_exclusive = {}
+		prerequisite = { focus = theroyalarmy}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			custom_effect_tooltip = ENG_mot_focus_tooltip
+
+			hidden_effect = {
+				load_oob = "ENG_Motorized"
+			}
+		}
+	}
+
+#Focus for - Subsidize Vickers-Armstrong
+	focus = {
+		id =subsidizevickersarmstrong
+		icon =GFX_focus_NZL_bob_semple_tank
+		x =10
+		y = 3
+		mutually_exclusive = {}
+		prerequisite = { focus = thebritishmotorcarcompany}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = med_armor_bonus
+				bonus = 0.5
+				technology = improved_light_tank
+			}
+			add_tech_bonus = {
+				name = med_armor_bonus
+				bonus = 0.5
+				ahead_reduction = .5
+				technology = basic_medium_tank
+			}
+			add_tech_bonus = {
+				name = med_armor_bonus
+				bonus = 0.5
+				ahead_reduction = .75
+				technology = improved_medium_tank
+			}
+		}
+	}
+#Focus for - Modern Tank Development
+	focus = {
+		id =moderntankdevelopment
+		icon =GFX_goal_generic_army_tanks
+		x =10
+		y = 4
+		mutually_exclusive = {}
+		prerequisite = { focus = subsidizevickersarmstrong}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = med_armor_bonus
+				bonus = 0.5
+				ahead_reduction = 1.0
+				technology = advanced_medium_tank
+			}
+			add_tech_bonus = {
+				name = med_armor_bonus
+				bonus = 0.5
+				ahead_reduction = 1.0
+				technology = main_battle_tank
+			}
+		}
+	}
+#Focus for - Royal Officers School
+	focus = {
+		id =royalofficersschool
+		icon =GFX_focus_RAJ_indian_gentlemen_offcers
+		x =12
+		y = 2
+		mutually_exclusive = {}
+		prerequisite = { focus = theroyalarmy}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+#Focus for - The Royal Navy
+	focus = {
+		id =theroyalnavy
+		icon =GFX_goal_generic_navy_doctrines_tactics
+		x =18
+		y = 1
+		mutually_exclusive = {}
+		prerequisite = { focus = formthekingdom }
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			navy_experience = 100
+		}
+	}
+#Focus for - The Royal Marines
+	focus = {
+		id =theroyalmarines
+		icon =GFX_goal_generic_amphibious_assault
+		x =14
+		y = 2
+		mutually_exclusive = {}
+		prerequisite = { focus = theroyalarmy }
+		prerequisite = { focus = theroyalnavy}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = tp_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 2
+				technology = marines
+				technology = marines2
+			}
+		}
+	}
+#Focus for - Fortress Britain
+	focus = {
+		id =fortressbritain
+		icon =GFX_focus_generic_coastal_fort
+		x =14
+		y = 3
+		mutually_exclusive = {}
+		prerequisite = { focus = theroyalmarines}
+		available = {  }
+		cost =  
+		available_if_capitulated = yes 
+		completion_reward = {
+			127 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 3501
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 11446
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 9458
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 13070
+					instant_build = yes
+				}
+			}
+			127 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 3422
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 3463
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 540
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 6526
+					instant_build = yes
+				}
+			}
+			126 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 3
+					province = 11374
+					instant_build = yes
+				}
+			}
+			125 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 221
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 271
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 322
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 3287
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 296
+					instant_build = yes
+				}
+			}
+			129 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 9322
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 3353
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 9250
+					instant_build = yes
+				}
+			}
+			130 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 11297
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 11317
+					instant_build = yes
+				}
+			}
+			131 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 11270
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 351
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 11299
+					instant_build = yes
+				}
+			}
+			131 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 11378
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 9392
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 9383
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 6300
+					instant_build = yes
+				}
+			}
+		}
+	}
+#Focus for - BSA Company
+	focus = {
+		id =bsacompany
+		icon =GFX_goal_generic_small_arms
+		x =12
+		y = 3
+		mutually_exclusive = {}
+		prerequisite = { focus = royalofficersschool}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_ideas = british_arms_discount
+		}
+	}
+#Focus for - New Landing Craft
+	focus = {
+		id =newlandingcraft
+		icon =GFX_goal_generic_build_navy
+		x =14
+		y = 4
+		mutually_exclusive = {}
+		prerequisite = { focus = fortressbritain}
+		prerequisite = { focus = subsidizevickersarmstrong}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = tp_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 2
+				technology = transport
+				technology = landing_craft
+				technology = tank_landing_craft
+			}
+		}
+	}
+#Focus for - Army Artillery Core
+	focus = {
+		id =armyartillerycore
+		icon =GFX_goal_generic_army_artillery2
+		x =12
+		y = 4
+		mutually_exclusive = {}
+		prerequisite = { focus = bsacompany}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_weapons_bonus
+				bonus = 0.5
+				uses = 2
+				category = artillery
+			}
+		}
+	}
+#Conscript Syndaclist Officers
+	focus = {
+		id =conscriptsyndies
+		icon =GFX_goal_totalism
+		x =8
+		y = 1
+		mutually_exclusive = {}
+		prerequisite = { focus = formthekingdom }
+		available = { }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			create_field_marshal = {
+				name = "John Vereker"
+				picture = "Portrait_England_John_Vereker.tga"
+				traits = { defensive_doctrine }
+				skill = 3
+			}
+
+			create_corps_commander = {
+				name = "Bernard Montgomery"
+				picture = "Portrait_England_Bernard_Montgomery.tga"
+				traits = { fortress_buster trait_engineer }
+				skill = 4
+			}
+
+			create_corps_commander = {
+				name = "Richard O'Connor"
+				picture = "Portrait_England_Richard_O_Connor.tga"
+				traits = {  }
+				skill = 4
+			}
+
+			create_corps_commander = {
+				name = "John Dill"
+				picture = "Portrait_England_John_Dill.tga"
+				traits = { hill_fighter }
+				skill = 3
+			}
+
+			create_corps_commander = {
+				name = "Giffard Le Quesne Martel"
+				picture = "Portrait_England_Giffard_Martel.tga"
+				traits = { panzer_leader }
+				skill = 2
+			}
+
+			create_navy_leader = {
+				name = "James Somerville"
+					picture = "Portrait_England_James_Somerville.tga"
+				traits = { superior_tactician }
+				skill = 5
+			}
+
+			create_navy_leader = {
+				name = "Andrew Cunningham"
+					picture = "Portrait_England_Andrew_Cunningham.tga"
+				traits = { blockade_runner superior_tactician }
+				skill = 5
+			}
+
+			create_navy_leader = {
+				name = "John Tovey"
+					picture = "Portrait_England_John_Tovey.tga"
+				traits = { superior_tactician }
+				skill = 4
+			}
+		}
+	}
+#Focus for - Lessons of the Great War
+	focus = {
+		id =lessonsofthegreatwar
+		icon =GFX_focus_generic_strike_at_democracy1
+		x =8
+		y = 4
+		mutually_exclusive = {}
+		prerequisite = { focus = conscriptsyndies }
+		available = { 
+			OR = {
+				has_completed_focus = moderntankdevelopment
+				has_completed_focus = armyartillerycore
+				has_completed_focus = newlandingcraft
+			}
+		}
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			remove_ideas = UK_military_syn_idea
+		}
+	}
+#Focus for - Montgomery's Grand Battleplan
+	focus = {
+		id =montgomerysgrandbattleplan
+		icon =GFX_goal_generic_position_armies
+		x =14
+		y = 5
+		mutually_exclusive = { focus = brookessuperiorfirepower}
+		mutually_exclusive = { focus = alexandersmobilewarfare}
+		prerequisite = { focus = newlandingcraft }
+		prerequisite = { focus = lessonsofthegreatwar}
+		available = {  }
+		cost =  
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 3
+				category = cat_grand_battle_plan
+			}
+		}
+	}
+#Focus for - Brooke's Superior Firepower
+	focus = {
+		id =brookessuperiorfirepower
+		icon =GFX_focus_generic_little_entente
+		x =12
+		y = 5
+		mutually_exclusive = { focus = alexandersmobilewarfare }
+		mutually_exclusive = { focus = montgomerysgrandbattleplan}
+		prerequisite = { focus = armyartillerycore }
+		prerequisite = { focus = lessonsofthegreatwar }
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 3
+				category = cat_superior_firepower
+			}
+		}
+	}
+#Focus for - Alexander's Mobile Warfare
+	focus = {
+		id =alexandersmobilewarfare
+		icon =GFX_goal_tfv_saf_anti_colonialist_crusade
+		x =10
+		y = 5
+		mutually_exclusive = { focus = brookessuperiorfirepower }
+		mutually_exclusive = { focus = montgomerysgrandbattleplan}
+		prerequisite = { focus = moderntankdevelopment }
+		prerequisite = { focus = lessonsofthegreatwar }		
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 3
+				category = cat_mobile_warfare
+			}
+		}
+	}
+#Focus for - Mobile Warfare II
+	focus = {
+		id =mobilewarfareii
+		icon =GFX_goal_tfv_saf_anti_colonialist_crusade
+		x =10
+		y = 6
+		mutually_exclusive = {}
+		prerequisite = { focus = alexandersmobilewarfare}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 3
+				category = cat_mobile_warfare
+			}
+		}
+	}
+#Focus for - Superior Firepower II
+	focus = {
+		id =superiorfirepowerii
+		icon =GFX_focus_generic_little_entente
+		x =12
+		y = 6
+		mutually_exclusive = {}
+		prerequisite = { focus = brookessuperiorfirepower}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 3
+				category = cat_superior_firepower
+			}
+		}
+	}
+#Focus for - Grand Battleplan II
+	focus = {
+		id =grandbattleplanii
+		icon =GFX_goal_generic_position_armies
+		x =14
+		y = 6
+		mutually_exclusive = {}
+		prerequisite = { focus = montgomerysgrandbattleplan}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 3
+				category = cat_grand_battle_plan
+			}
+		}
+	}
+#Focus for - Dockyard Constructions I
+	focus = {
+		id =dockyardconstructionsi
+		icon =GFX_goal_generic_construct_naval_dockyard
+		x =16
+		y = 2
+		mutually_exclusive = {}
+		prerequisite = { focus = theroyalnavy}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_state = {
+					limit = {
+						controller = { tag = ROOT }
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+#Focus for - Dockyard Constructions II
+	focus = {
+		id =dockyardconstructionsii
+		icon =GFX_goal_generic_construct_naval_dockyard
+		x =16
+		y = 3
+		mutually_exclusive = {}
+		prerequisite = { focus = dockyardconstructionsi}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_state = {
+					limit = {
+						controller = { tag = ROOT }
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_state = {
+					limit = {
+						controller = { tag = ROOT }
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+#Focus for - Reform the Admiralty
+	focus = {
+		id =reformtheadmiralty
+		icon =GFX_goal_generic_build_navy
+		x =19
+		y = 2
+		mutually_exclusive = {}
+		prerequisite = { focus = theroyalnavy}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				navy_experience = 150
+				name = naval_doc_bonus
+				bonus = 0.5
+				uses = 3
+				category = naval_doctrine
+			}
+		}
+	}
+#Focus for - Improve the Escort Force
+	focus = {
+		id =improvetheescortforce
+		icon =GFX_goal_generic_navy_cruiser
+		x =18
+		y = 3
+		mutually_exclusive = {}
+		prerequisite = { focus = reformtheadmiralty}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_ideas = british_convoy_discount
+			add_tech_bonus = {
+				name = dd_bonus
+				bonus = 0.5
+				uses = 2
+				category = dd_tech
+			}
+		}
+	}
+#Focus for - New Battleship Designs
+	focus = {
+		id =newbattleshipdesigns
+		icon =GFX_goal_generic_navy_battleship
+		x =20
+		y = 3
+		mutually_exclusive = {}
+		prerequisite = { focus = reformtheadmiralty}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = uk_battleship_focus
+				bonus = 0.5
+				uses = 2
+				category = bb_tech
+			}
+		}
+	}
+#Focus for - New Carrier Designs
+	focus = {
+		id =newcarrierdesigns
+		icon =GFX_goal_generic_navy_carrier
+		x =20
+		y = 4
+		mutually_exclusive = {}
+		prerequisite = { focus = newbattleshipdesigns}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = uk_carrier_focus
+				bonus = 0.5
+				uses = 2
+				category = cv_tech
+			}
+		}
+	}
+#Focus for - Improved Submarines
+	focus = {
+		id =improvedsubmarines
+		icon =GFX_goal_generic_navy_submarine
+		x =18
+		y = 4
+		mutually_exclusive = {}
+		prerequisite = { focus = improvetheescortforce}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = sub_effort
+				bonus = 0.5
+				uses = 2
+				technology = early_submarine
+				technology = basic_submarine
+				technology = improved_submarine
+				technology = advanced_submarine
+			}
+		}
+	}
+#Focus for - Naval Doctrine Effort
+	focus = {
+		id =navaldoctrineeffort
+		icon =GFX_goal_generic_navy_doctrines_tactics
+		x =16
+		y = 4
+		mutually_exclusive = {}
+		prerequisite = { focus = improvetheescortforce focus = newbattleshipdesigns}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = naval_doc_bonus
+				bonus = 0.5
+				uses = 3
+				category = naval_doctrine
+			}
+		}
+	}
+#Focus for - The Royal Air Force
+	focus = {
+		id =theroyalairforce
+		icon =GFX_goal_generic_build_airforce
+		x =24
+		y = 1
+		mutually_exclusive = {}
+		prerequisite = { focus = formthekingdom }
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			air_experience = 100
+		}
+	}
+#Focus for - Integrate Fisher's Methods
+	focus = {
+		id =integratefishersmethods
+		icon = GFX_goal_generic_occupy_states_coastal
+		x =18
+		y = 5
+		mutually_exclusive = {}
+		prerequisite = { focus = navaldoctrineeffort focus = newcarrierdesigns focus = improvedsubmarines}
+		available = {  }
+		cost =  10
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_ideas = ENG_fisher_focus
+		}
+	}
+#Focus for - Britannia Rule the Waves
+	focus = {
+		id =britanniarulethewaves
+		icon =GFX_goal_generic_navy_doctrines_tactics
+		x =18
+		y = 6
+		mutually_exclusive = {}
+		prerequisite = { focus = integratefishersmethods}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_ideas = ENG_rule_the_waves
+		}
+	}
+#Focus for - Hawker Design Contracts
+	focus = {
+		id =hawkerdesigncontracts
+		icon =GFX_goal_generic_air_fighter
+		x =24
+		y = 2
+		mutually_exclusive = {}
+		prerequisite = { focus = theroyalairforce}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = hawker_contract
+				bonus = 0.5
+				uses = 1
+				technology = fighter1
+				technology = fighter2
+				technology = cas1
+				technology = cas2
+			}
+		}
+	}
+#Focus for - Supermarine Design Contracts
+	focus = {
+		id =supermarinedesigncontracts
+		icon =GFX_goal_generic_air_fighter
+		x =26
+		y = 2
+		mutually_exclusive = {}
+		prerequisite = { focus = theroyalairforce}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = supermarine_contract
+				bonus = 0.5
+				uses = 1
+				technology = fighter1
+				technology = fighter2
+				technology = cas1
+				technology = cas2
+			}
+		}
+	}
+#Focus for - Civilian Defense Guns
+	focus = {
+		id =civiliandefenseguns
+		icon =GFX_focus_generic_air_defense
+		x =22
+		y = 2
+		mutually_exclusive = {}
+		prerequisite = { focus = theroyalairforce}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			
+			127 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}
+			127 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}
+			126 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 3
+					instant_build = yes
+				}
+			}
+			221 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}
+			129 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}
+			130 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				instant_build = yes
+				}
+			}
+			131 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}
+			131 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+#Focus for - Air Doctrine Effort
+	focus = {
+		id =airdoctrineeffort
+		icon =GFX_goal_generic_build_airforce
+		x =22
+		y = 3
+		mutually_exclusive = {}
+		prerequisite = { focus = supermarinedesigncontracts focus = hawkerdesigncontracts}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 3
+				category = air_doctrine
+			}
+		}
+	}
+#Focus for - Aircraft Design Group
+	focus = {
+		id =aircraftdesigngroup
+		icon =GFX_goal_generic_air_fighter2
+		x =25
+		y = 3
+		mutually_exclusive = {}
+		prerequisite = { focus = hawkerdesigncontracts focus = supermarinedesigncontracts}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_ideas = british_fighter_discount
+		}
+	}
+#Focus for - Strategic Air Effort
+	focus = {
+		id =strategicaireffort
+		icon =GFX_goal_generic_air_bomber
+		x =24
+		y = 4
+		mutually_exclusive = { focus = tacticalaireffort}
+		prerequisite = { focus = aircraftdesigngroup}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = strat_air_bonus
+				bonus = 0.5
+				uses = 2
+				category = cat_strategic_bomber
+				category = strategic_destruction_tree
+			}
+		}
+	}
+#Focus for - Tactical Air Effort
+	focus = {
+		id =tacticalaireffort
+		icon =GFX_goal_generic_air_fighter
+		x =26
+		y = 4
+		mutually_exclusive = { focus = strategicaireffort}
+		prerequisite = { focus = aircraftdesigngroup}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = strat_air_bonus
+				bonus = 0.5
+				uses = 2
+				category = tactical_bomber
+				category = operational_integrity_tree
+			}
+		}
+	}
+#Focus for - CAS Designs
+	focus = {
+		id =casdesigns
+		icon =GFX_goal_poland_goal
+		x =22
+		y = 4
+		mutually_exclusive = {}
+		prerequisite = { focus = aircraftdesigngroup}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = cas_bonus
+				bonus = 0.5
+				uses = 2
+				technology = cas1
+				technology = cas2
+				technology = cas3
+				technology = cv_cas1
+				technology = cv_cas2
+				technology = cv_cas3
+			}
+		}
+	}
+#Focus for - Naval Aircraft Designs
+	focus = {
+		id =navalaircraftdesigns
+		icon =GFX_goal_generic_air_naval_bomber
+		x =22
+		y = 5
+		mutually_exclusive = {}
+		prerequisite = { focus = casdesigns }
+		prerequisite = { focus = newcarrierdesigns}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = nav_bonus
+				bonus = 0.8
+				uses = 4
+				technology = cv_fighter1
+				technology = cv_fighter2
+				technology = naval_bomber1
+				technology = naval_bomber2
+				technology = cv_naval_bomber1
+				technology = cv_naval_bomber2
+			}
+		}
+	}
+#Focus for - The Gloster Star
+	focus = {
+		id =theglosterstar
+		icon =GFX_goal_generic_air_fighter2
+		x =25
+		y = 5
+		mutually_exclusive = {}
+		prerequisite = { focus = strategicaireffort focus = tacticalaireffort}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = star_bonus
+				bonus = 0.5
+				ahead_reduction = 1.0
+				technology = jet_fighter1
+			}
+		}
+	}
+	
+#Focus for - Economic Revitalization
+	focus = {
+		id =economicrevitalization
+		icon =GFX_goal_generic_intelligence_exchange
+		x =4
+		y = 1
+		mutually_exclusive = {}
+		prerequisite = { focus = formthekingdom }
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_ideas = british_austerity_idea
+		}
+	}
+#Focus for - Prepare for War
+	focus = {
+		id =prepareforwar
+		icon =GFX_goal_generic_construction
+		x =2
+		y = 2
+		mutually_exclusive = {}
+		prerequisite = { focus = economicrevitalization}
+		available = { threat > 0.05 }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_ideas = wartime_industry_focus
+		}
+	}
+#Focus for - Build Bletchly Park
+	focus = {
+		id =buildbletchlypark
+		icon =GFX_focus_generic_cryptologic_bomb
+		x =0
+		y = 1
+		mutually_exclusive = {}
+		prerequisite = { focus = formthekingdom }
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = codebreaking_bonus
+				bonus = 0.5
+				uses = 3
+				category = decryption_tech
+				category = computing_tech
+			}
+		}
+	}
+#Focus for - Extra Research Slot I
+	focus = {
+		id =extraresearchsloti
+		icon =GFX_focus_research
+		x =0
+		y = 2
+		mutually_exclusive = {}
+		prerequisite = { focus = buildbletchlypark}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+#Focus for - Work Relief Camps
+	focus = {
+		id =workreliefcamps
+		icon =GFX_goal_generic_consumer_goods
+		x =6
+		y = 2
+		mutually_exclusive = {}
+		prerequisite = { focus = economicrevitalization}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+#Focus for - Build the M1
+	focus = {
+		id =buildthem1
+		icon =GFX_goal_generic_construct_infrastructure
+		x =4
+		y = 2
+		mutually_exclusive = {}
+		prerequisite = { focus = economicrevitalization}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			126 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = infrastructure
+						level = 10
+						instant_build = yes
+					}
+				}
+			}
+			129 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = infrastructure
+						level = 10
+						instant_build = yes
+					}
+				}
+			}
+			130 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = infrastructure
+						level = 10
+						instant_build = yes
+					}
+				}
+			}
+			131 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = infrastructure
+						level = 10
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+
+#Focus for - RADAR
+	focus = {
+		id =radar
+		icon =GFX_goal_generic_radar
+		x =0
+		y = 3
+		mutually_exclusive = {}
+		prerequisite = { focus = extraresearchsloti }
+		prerequisite = { focus = prepareforwar }
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = radar_focus
+				bonus = 0.5
+				uses = 3
+				category = radar_tech
+			}
+		}
+	}
+#Focus for - Military Constructions I
+	focus = {
+		id =militaryconstructionsi
+		icon =GFX_goal_generic_construct_mil_factory
+		x =3
+		y = 3
+		mutually_exclusive = {}
+		prerequisite = { focus = prepareforwar}
+		prerequisite = { focus = buildthem1}
+		available = { threat > 0.15 }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+#Focus for - Civilian Construction I
+	focus = {
+		id =civilianconstructioni
+		icon =GFX_goal_generic_construct_civ_factory
+		x =5
+		y = 3
+		mutually_exclusive = {}
+		prerequisite = { focus = buildthem1}
+		prerequisite = { focus = workreliefcamps}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+#Focus for - Civilian Construction II
+	focus = {
+		id =civilianconstructionii
+		icon =GFX_goal_generic_construct_civ_factory
+		x =5
+		y = 4
+		mutually_exclusive = {}
+		prerequisite = { focus = civilianconstructioni}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+#Focus for - Military Constructions II
+	focus = {
+		id =militaryconstructionsii
+		icon =GFX_goal_generic_construct_mil_factory
+		x =3
+		y = 4
+		mutually_exclusive = {}
+		prerequisite = { focus = militaryconstructionsi}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+#Focus for - North Sea Oil
+	focus = {
+		id =northseaoil
+		icon =GFX_goal_generic_oil_refinery
+		x =6
+		y = 5
+		mutually_exclusive = {}
+		prerequisite = { focus = civilianconstructioni}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_resource = {
+				type = oil
+				amount = 53
+				state = 120
+			}
+			add_resource = {
+				type = oil
+				amount = 42
+				state = 136
+			}
+			add_resource = {
+				type = oil
+				amount = 68
+				state = 121
+			}
+		}
+	}
+#Focus for - Extra Research Slot II
+	focus = {
+		id =extraresearchslotii
+		icon =GFX_focus_research
+		x =0
+		y = 4
+		mutually_exclusive = {}
+		prerequisite = { focus = radar}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+#Focus for - MAUD Group
+	focus = {
+		id =maudgroup
+		icon =GFX_focus_wonderweapons
+		x =1
+		y = 5
+		mutually_exclusive = {}
+		prerequisite = { focus = extraresearchslotii}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = maud_focus
+				bonus = 0.5
+				uses = 1
+				category = nuclear
+			}
+		}
+	}
+#Focus for - Form the Royal Space Command
+	focus = {
+		id =formtheroyalspacecommand
+		icon =GFX_focus_rocketry
+		x =0
+		y = 6
+		mutually_exclusive = {}
+		prerequisite = { focus = maudgroup}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = jet_rocket_bonus
+				ahead_reduction = 1.0
+				uses = 4
+				category = rocketry
+			}
+		}
+	}
+#Focus for - Computational Warfare
+	focus = {
+		id =computationalwarfare
+		icon =GFX_goal_generic_production2
+		x =2
+		y = 6
+		mutually_exclusive = {}
+		prerequisite = { focus = maudgroup}
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = codebreaking_bonus
+				bonus = 0.5
+				uses = 3
+				category = decryption_tech
+				category = computing_tech
+				category = encryption_tech
+			}
+		}
+	}
+#Focus for - Secret Weapons
+	focus = {
+		id =secretweapons
+		icon =GFX_goal_generic_secret_weapon
+		x =4
+		y = 6
+		mutually_exclusive = {}
+		prerequisite = { focus = maudgroup }
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			add_tech_bonus = {
+				name = UK_secret_focus
+				bonus = 0.5
+				uses = 6
+				category = electronics
+				category = rocketry
+				category = nuclear
+			}
+		}
+	}
+#Focus for - Out of the Depression
+	focus = {
+		id =outofthedepression
+		icon =GFX_focus_generic_the_giant_wakes
+		x =4
+		y = 5
+		mutually_exclusive = {}
+		prerequisite = { focus = militaryconstructionsii }
+		prerequisite = { focus = civilianconstructionii }
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+		completion_reward = {
+			remove_ideas = UK_economy_syn_idea
+		}
+	}
+	
+	focus = {
+		id = UKC_UK_civgov
+		icon = GFX_goal_support_democracy
+		bypass = {
+			
+		}
+		available = {
+			
+		}
+		x = 29
+		y = 1
+		cost = 10
+		prerequisite = { focus = formthekingdom }
+		
+		ai_will_do = {
+			factor = 2
+		}
+		
+		completion_reward = {
+			add_political_power = 250
+		}
+	}
+	
+	# The Election
+	
+	focus = {
+		id = UKC_UK_noelection
+		icon = GFX_goal_monarchism_black
+		prerequisite = { focus = UKC_UK_civgov }
+		mutually_exclusive = { focus = UKC_UK_election }
+		x = 28
+		y = 3
+		cost = 10
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			add_ideas = state_company
+		}
+	}
+	
+	focus = {
+		id = UKC_UK_election
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = UKC_UK_civgov }
+		mutually_exclusive = { focus = UKC_UK_noelection }
+		x = 30
+		y = 3
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			add_ideas = commie_council
+		}
+	}
+	
+	# Rooting out Syndicalism
+	
+	focus = {
+		id = UKC_UK_suspend
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = UKC_UK_noelection focus = UKC_UK_election }
+		mutually_exclusive = { focus = UKC_UK_truth }
+		x = 28
+		y = 4
+		cost = 10
+		
+		ai_will_do = {
+			factor = 20
+		}
+		
+		completion_reward = {
+			add_ideas = UK_suspend_idea
+		}
+	}
+	
+	focus = {
+		id = UKC_UK_truth
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = UKC_UK_election }
+		mutually_exclusive = { focus = UKC_UK_suspend }
+		x = 30
+		y = 4
+		cost = 10
+		
+		ai_will_do = {
+			factor = 20
+		}
+		
+		completion_reward = {
+			add_ideas = UK_truth_idea
+		}
+	}
+	
+	focus = {
+		id = UKC_UK_aristocracy
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = UKC_UK_noelection }
+		available = {
+			
+		}
+		x = 27
+		y = 5
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			add_ideas = UK_aristocracy_idea
+		}
+	}
+	
+	focus = {
+		id = UKC_UK_liberty_day
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = UKC_UK_suspend }
+		prerequisite = { focus = UKC_UK_aristocracy }
+		x = 28
+		y = 6
+		cost = 10
+		
+		ai_will_do = {
+			factor = 20
+		}
+		
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	
+	focus = {
+		id = UKC_UK_mi5
+		icon = GFX_goal_forever_eyes_program
+		prerequisite = { focus = UKC_UK_suspend }
+		x = 29
+		y = 5
+		cost = 10
+		
+		ai_will_do = {
+			factor = 20
+		}
+		
+		completion_reward = {
+			add_national_unity = 0.05
+		}
+	}
+	
+	focus = {
+		id = UKC_UK_root_syn
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = UKC_UK_mi5 focus = UKC_UK_liberty_day }
+		mutually_exclusive = { focus = UKC_UK_overcome_syn }
+		x = 29
+		y = 7
+		cost = 10
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		completion_reward = {
+			remove_ideas = UK_politics_syn_idea
+		}
+	}
+	
+	focus = {
+		id = UKC_UK_overcome_syn
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = UKC_UK_truth }
+		prerequisite = { focus = UKC_UK_art_3 }
+		mutually_exclusive = { focus = UKC_UK_root_syn }
+		x = 31
+		y = 7
+		cost = 10
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		completion_reward = {
+			remove_ideas = UK_politics_syn_idea
+		}
+	}
+	
+	# Academy of Arts
+	
+	focus = {
+		id = UKC_UK_art_academy
+		icon = GFX_goal_government_icon
+		available = {
+			
+		}
+		prerequisite = { focus = formthekingdom }
+		x = 33
+		y = 1
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = UKC_UK_art_overcome
+		icon = GFX_goal_art_avantgarde
+		prerequisite = { focus = UKC_UK_art_academy }
+		mutually_exclusive = { focus = UKC_UK_art_propaganda }
+		x = 32
+		y = 2
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			add_national_unity = 0.1
+			add_political_power = -50
+		}
+	}
+	
+	focus = {
+		id = UKC_UK_art_propaganda
+		icon = GFX_goal_art_propaganda
+		prerequisite = { focus = UKC_UK_art_academy }
+		mutually_exclusive = { focus = UKC_UK_art_overcome }
+		x = 34
+		y = 2
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			add_political_power = 100
+			add_national_unity = -0.05
+		}
+	}
+	
+	focus = {
+		id = UKC_UK_art_2
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		prerequisite = { focus = UKC_UK_art_overcome focus = UKC_UK_art_propaganda }
+		x = 33
+		y = 3
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			add_ideas = UK_righteous_cause_idea
+		}
+	}
+	
+	focus = {
+		id = UKC_UK_art_3
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = UKC_UK_art_2 }
+		prerequisite = { focus = UKC_UK_art_overcome }
+		x = 32
+		y = 4
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = UK_righteous_cause_idea
+				add_idea = UK_citizen_idea
+			}
+		}
+	}
+	
+	focus = {
+		id = UKC_UK_art_4
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = UKC_UK_art_propaganda }
+		prerequisite = { focus = UKC_UK_art_2 }
+		x = 34
+		y = 4
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = UK_righteous_cause_idea
+				add_idea = UK_agitprop_idea
+			}
+		}
+	}
+	
+	focus = {
+		id = developatlantic
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = formthekingdom }
+		x = 36
+		y = 1
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			CAF = {
+				random_owned_controlled_state = {
+					limit = {
+						is_in_home_area = yes
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_in_home_area = yes
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_in_home_area = yes
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = developatlantic2
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = developatlantic }
+		prerequisite = { focus = cafcloserties }
+		x = 37
+		y = 2
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			CAF = {
+				random_owned_controlled_state = {
+					limit = {
+						is_in_home_area = yes
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_in_home_area = yes
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_in_home_area = yes
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_in_home_area = yes
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_in_home_area = yes
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_in_home_area = yes
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = cafcloserties
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = formthekingdom }
+		x = 38
+		y = 1
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			CAF = {
+				country_event = ukc.4
+			}
+		}
+	}
+	
+	focus = {
+		id = demandfalklands
+		icon = GFX_goal_authoritarian
+		prerequisite = { focus = developatlantic2 }
+		available = {
+			NOT = {
+				UKC = {
+					owns_state = 720
+					owns_state = 299
+				}
+			}
+		}
+		x = 36
+		y = 3
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			ARG = {
+				country_event = ukc.9
+			}
+		}
+	}
+	
+	focus = {
+		id = intergratecaf
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = developatlantic2 }
+		available = {
+			CAF = { is_puppet_of = UKC }
+		}
+		x = 38
+		y = 3
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			UKC = {
+				annex_country = { target = CAF transfer_troops = yes }
+			}
+			hidden_effect = {
+				every_state = {
+					limit = {
+						is_core_of = CAF
+					}
+					UKC = {
+						add_state_core = PREV
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = gibraltarprop
+		icon = GFX_goal_monarchism_black
+		prerequisite = { focus = formthekingdom }
+		x = 39
+		y = 4
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			UKC = {
+				add_state_core = 118
+			}
+		}
+	}
+	
+	focus = {
+		id = buygibraltar
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = gibraltarprop }
+		mutually_exclusive = { focus = rockelections }
+		available = {
+			NOT = {
+				UKC = {
+					owns_state = 118
+				}
+			}
+		}
+		x = 40
+		y = 5
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			if = {
+				limit = {
+					SPR = {
+						controls_state = 118
+					}
+				}
+				SPR = {
+					country_event = ukc.7
+				}
+			}
+			if = {
+				limit = {
+					CNT = {
+						controls_state = 118
+					}
+				}
+				CNT = {
+					country_event = ukc.7
+				}
+			}
+			if = {
+				limit = {
+					CAR = {
+						controls_state = 118
+					}
+				}
+				CAR = {
+					country_event = ukc.7
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = rockelections
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = gibraltarprop }
+		mutually_exclusive = { focus = buygibraltar }
+		available = {
+			NOT = {
+				UKC = {
+					owns_state = 118
+				}
+			}
+		}
+		x = 38
+		y = 5
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			if = {
+				limit = {
+					SPR = {
+						controls_state = 118
+					}
+				}
+				SPR = {
+					country_event = ukc.5
+				}
+			}
+			if = {
+				limit = {
+					CNT = {
+						controls_state = 118
+					}
+				}
+				CNT = {
+					country_event = ukc.5
+				}
+			}
+			if = {
+				limit = {
+					CAR = {
+						controls_state = 118
+					}
+				}
+				CAR = {
+					country_event = ukc.5
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = demandgibraltar
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = rockelections focus = gibraltarprop focus = buygibraltar }
+		available = {
+			NOT = {
+				UKC = {
+					owns_state = 118
+				}
+			}
+		}
+		x = 39
+		y = 6
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			if = {
+				limit = {
+					SPR = {
+						controls_state = 118
+					}
+				}
+				SPR = {
+					country_event = ukc.12
+				}
+			}
+			if = {
+				limit = {
+					CNT = {
+						controls_state = 118
+					}
+				}
+				CNT = {
+					country_event = ukc.12
+				}
+			}
+			if = {
+				limit = {
+					CAR = {
+						controls_state = 118
+					}
+				}
+				CAR = {
+					country_event = ukc.12
+				}
+			}
+		}
+	}
+	
+#end
+}

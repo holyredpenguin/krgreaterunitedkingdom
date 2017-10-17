@@ -1,0 +1,39 @@
+###########################
+# UKC Focus Tree
+###########################
+
+focus_tree = {
+	id = greateruk_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = UKC
+		}
+	}
+	default = no
+
+	##########################################
+	###United Kingdom of GB and UKC Focuses###
+	##########################################
+	
+	focus = {# Form the Kingdom
+		id = formthekingdom
+		icon = GFX_focus_AST_never_gallipoli
+		prerequisite = {  }
+		x = 26
+		y = 0
+		available = {
+			
+		}
+		cost = 0
+		ai_will_do = {
+			factor = 0
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+}

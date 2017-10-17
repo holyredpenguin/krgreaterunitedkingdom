@@ -187,5 +187,51 @@ ideas = {
 				army_core_attack_factor = 0.2
 			}
 		}
+		
+		UKC_supermarine = {
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			picture = supermarine
+			
+			modifier = {
+				air_air_superiority_attack_factor = 0.20
+				air_air_superiority_defence_factor = 0.20
+				air_air_superiority_agility_factor = 0.20
+			}
+		}
+		UKC_hawker = {
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			picture = hawker
+			
+			modifier = {
+				air_close_air_support_attack_factor = 0.20
+				air_close_air_support_defence_factor = 0.20
+				air_close_air_support_agility_factor = 0.20
+			}
+		}
+		UKC_vickers = {
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			picture = canadian_vickers
+			
+			modifier = {
+				army_armor_speed_factor = 0.07
+				army_armor_attack_factor = 0.1
+				army_armor_defence_factor = 0.05
+			}
+		}
 	}
 }
