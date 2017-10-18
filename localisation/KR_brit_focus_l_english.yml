@@ -38,6 +38,38 @@
  ausally_desc:0 "Now that the American Civil War is over and won, we can finally formally add the American Union State to the Entente"
  
  ### Focuses ###
+ 
+ #new politics tree
+ UKC_election:0 "The First Election"
+ UKC_election_desc:0 "Our United Kingdom is the birthplace and center of western democracy, and this will be the first election of our combined nation"
+ UKC_so_cred:0 "Social Credit Victory"
+ UKC_so_cred_desc:0 ""
+ UKC_eagle_scout_soliders:0 "Eagle Scout Soldiers"
+ UKC_eagle_scout_soliders_desc:0 ""
+ UKC_devour_the_enemy:0 "Devour the Enemy"
+ UKC_devour_the_enemy_desc:0 ""
+ UKC_conservative:0 "Torrie Victory"
+ UKC_conservative_desc:0 ""
+ UKC_remember_the_dead:0 "Remember the Dead"
+ UKC_remember_the_dead_desc:0 ""
+ UKC_surveillance_at_home_and_abroad:0 "Surveillance at Home and Abroad"
+ UKC_surveillance_at_home_and_abroad_desc:0 ""
+ UKC_liberal:0 "Liberal Victory"
+ UKC_liberal_desc:0 ""
+ UKC_begin_reconstruction:0 "Government Projects: Hydroelectricity"
+ UKC_begin_reconstruction_desc:0 ""
+ UKC_continue_reconstruction:0 "Government Projects: Improved Farming"
+ UKC_continue_reconstruction_desc:0 ""
+ UKC_voting_reform:0 "Voting Reform"
+ UKC_voting_reform_desc:0 ""
+ UKC_leftist:0 "Leftist Victory"
+ UKC_leftist_desc:0 ""
+ UKC_estate_tax:0 "Implement an Estate Tax"
+ UKC_estate_tax_desc:0 ""
+ UKC_hm_revolutionary_guard:0 "His Majesty's Revolutionary Guard"
+ UKC_hm_revolutionary_guard_desc:0 ""
+ #end new politics
+ 
  UKC_UK_milgov:0 "Military Provisional Government"
  UKC_UK_milgov_desc:0 "Appoint a Military Provisional Government led by the Social Conservative Lord Mountbatten to lead the Kingdom until further notice."
  UKC_UK_civgov:0 "Vitalize Westminster"

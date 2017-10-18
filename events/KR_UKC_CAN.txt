@@ -1,0 +1,389 @@
+###########################
+# United Kingdom of Great Britain and Canada Events
+###########################
+# By HolyRedPenguin
+###########################
+
+add_namespace = ukc
+
+# Combination restoration
+
+country_event = {
+	id = ukc.1
+	title = ukc.1.t
+	desc = ukc.1.d
+	picture = UK_country_parliament
+
+	is_triggered_only = yes
+
+	option = {
+		name = ukc.1.a
+		ai_chance = { factor = 100 }
+		CAN = {
+			country_event = ukc.3
+		}
+	}
+
+	option = {
+		name = ukc.1.b
+		ai_chance = { factor = 0 }
+		
+	}
+}
+
+country_event = {
+	id = ukc.2
+	title = ukc.2.t
+	desc = ukc.2.desc
+	picture = UK_country_parliament
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		
+	}
+	
+	option = {
+		name = ukc.2.a
+		set_capital = 126
+		hidden_effect = {
+			add_political_power = -150
+			add_national_unity = -0.15
+		}
+	}
+	option = {
+		name = ukc.2.b
+	}
+}
+
+country_event = {
+	id = ukc.3
+	title = ukc.3.t
+	desc = ukc.3.d
+	picture = UK_country_parliament
+
+	is_triggered_only = yes
+
+	option = {
+		name = ukc.3.a
+		add_political_power = -200
+		hidden_effect = {
+			set_cosmetic_tag = CAN_UKC
+			every_state = {
+				limit = {
+					is_core_of = ENG
+				}
+				CAN = {
+					add_state_core = PREV
+				}
+			}
+		}
+		CAN = { country_event = ukc.2 }
+		add_ideas = UK_politics_syn_idea
+		add_ideas = UK_economy_syn_idea
+		add_ideas = UK_military_syn_idea
+	}
+}
+
+country_event = {
+	id = ukc.4
+	title = ukc.4.t
+	desc = ukc.4.d
+	picture = UK_country_parliament
+
+	is_triggered_only = yes
+
+	option = {
+		name = ukc.4.a
+		ai_chance = { factor = 100 }
+		add_political_power = 200
+		hidden_effect = {
+			UKC = {
+				puppet = CAF
+			}
+		}
+	}
+	
+	option = {
+		name = ukc.4.b
+		
+	}
+}
+
+country_event = {
+	id = ukc.5
+	title = ukc.5.t
+	desc = ukc.5.d
+	picture = GFX_news_event_052
+
+	is_triggered_only = yes
+
+	option = {
+		name = ukc.5.a
+		
+	}
+	
+	option = {
+		name = ukc.5.b
+		UKC = {
+			country_event = ukc.6
+		}
+	}
+}
+
+country_event = {
+	id = ukc.6
+	title = ukc.6.t
+	desc = ukc.6.d
+	picture = GFX_news_event_052
+
+	is_triggered_only = yes
+
+	option = {
+		name = ukc.6.a
+		
+	}
+}
+
+country_event = {
+	id = ukc.7
+	title = ukc.7.t
+	desc = ukc.7.d
+	picture = GFX_news_event_052
+
+	is_triggered_only = yes
+
+	option = {
+		name = ukc.7.a
+		if = {
+			limit = {
+				SPR = {
+					controls_state = 118
+				}
+			}
+			SPR = {
+				remove_state_core = 118
+				add_ideas = rock_payments
+			}
+			UKC = {
+				transfer_state = 118
+			}
+		}
+		if = {
+			limit = {
+				CNT = {
+					controls_state = 118
+				}
+			}
+			CNT = {
+				remove_state_core = 118
+				add_ideas = rock_payments
+			}
+			UKC = {
+				transfer_state = 118
+			}
+		}
+		if = {
+			limit = {
+				CAR = {
+					controls_state = 118
+				}
+			}
+			CAR = {
+				remove_state_core = 118
+				add_ideas = rock_payments
+			}
+			UKC = {
+				transfer_state = 118
+			}
+		}
+	}
+	option = {
+		name = ukc.7.b
+		UKC = {
+			country_event = ukc.6
+		}
+	}
+}
+
+# La Plata Refuses to give up Falklands
+country_event = {
+	id = ukc.8
+	title = ukc.8.t
+	desc = ukc.8.d
+	picture = GFX_report_event_polish_army
+
+	is_triggered_only = yes
+	
+	option = {
+		name = ukc.8.a
+		create_wargoal = {
+			type = take_state_focus
+			target = ARG
+			generator = { 299 }
+			generator = { 720 }
+		}
+	}
+}
+
+# La Plata demands
+country_event = {
+	id = ukc.9
+	title = ukc.9.t
+	desc = ukc.9.d
+	picture = GFX_report_event_polish_army
+
+	is_triggered_only = yes
+	
+	option = {
+		name = ukc.9.a
+		AGR = {
+			remove_state_core = 299
+			remove_state_core = 720
+		}
+		UKC = {
+			transfer_state = 299
+			transfer_state = 720
+		}
+	}
+	option = {
+		name = ukc.9.b
+		UKC = {
+			country_event = ukc.8
+		}
+	}
+}
+
+#Falklands Event
+country_event = {
+	id = ukc.10
+	title = ukc.10
+	desc = ukc.10
+	picture = GFX_report_event_polish_army
+
+	trigger = {
+		AND = {
+			UKC = { has_full_control_of_state = 299 }
+			UKC = { has_full_control_of_state = 720 }
+		}
+	}
+	
+	option = {
+		name = ukc.10
+		299 = { set_state_name = "Falkland Islands" }
+		720 = { set_state_name = "South Georgia & South Sandwich Islands" }
+		UKC = {
+			add_state_core = 299
+			add_state_core = 720
+		}
+	}
+}
+
+# Spain to give up Gibraltar
+country_event = {
+	id = ukc.11
+	title = ukc.11.t
+	desc = ukc.11.d
+	picture = GFX_report_event_polish_army
+
+	is_triggered_only = yes
+	
+	option = {
+		name = ukc.11.a
+		if = {
+			limit = {
+				SPR = {
+					controls_state = 118
+				}
+			}
+			create_wargoal = {
+				type = take_state_focus
+				target = SPR
+				generator = { 118 }
+			}
+		}
+		if = {
+			limit = {
+				CNT = {
+					controls_state = 118
+				}
+			}
+			create_wargoal = {
+				type = take_state_focus
+				target = CNT
+				generator = { 118 }
+			}
+		}
+		if = {
+			limit = {
+				CAR = {
+					controls_state = 118
+				}
+			}
+			create_wargoal = {
+				type = take_state_focus
+				target = CAR
+				generator = { 118 }
+			}
+		}
+	}
+}
+
+# Rock demands
+country_event = {
+	id = ukc.12
+	title = ukc.12.t
+	desc = ukc.12.d
+	picture = GFX_report_event_polish_army
+
+	is_triggered_only = yes
+	
+	option = {
+		name = ukc.12.a
+		if = {
+			limit = {
+				SPR = {
+					controls_state = 118
+				}
+			}
+			SPR = {
+				remove_state_core = 118
+			}
+			UKC = {
+				transfer_state = 118
+			}
+		}
+		if = {
+			limit = {
+				CNT = {
+					controls_state = 118
+				}
+			}
+			CNT = {
+				remove_state_core = 118
+			}
+			UKC = {
+				transfer_state = 118
+			}
+		}
+		if = {
+			limit = {
+				CAR = {
+					controls_state = 118
+				}
+			}
+			CAR = {
+				remove_state_core = 118
+			}
+			UKC = {
+				transfer_state = 118
+			}
+		}
+	}
+	option = {
+		name = ukc.12.b
+		UKC = {
+			country_event = ukc.11
+		}
+	}
+}

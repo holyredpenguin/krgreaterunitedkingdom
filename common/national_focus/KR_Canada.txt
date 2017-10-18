@@ -4588,7 +4588,7 @@ focus_tree = {
 #Focus for - The Royal Navy
 	focus = {
 		id = theroyalnavy
-		icon = GBR_royal_navy
+		icon = GFX_goal_GBR_royal_navy
 		x = 18
 		y = 11
 		mutually_exclusive = {}
@@ -5395,7 +5395,7 @@ focus_tree = {
 #Focus for - The Royal Air Force
 	focus = {
 		id =theroyalairforce
-		icon = GBR_royal_air_force
+		icon = GFX_goal_GBR_royal_air_force
 		x = 24
 		y = 11
 		mutually_exclusive = {}
@@ -5685,6 +5685,450 @@ focus_tree = {
 				ahead_reduction = 1.0
 				technology = jet_fighter1
 			}
+		}
+	}
+	
+	#######################
+	#political foci
+	#######################
+	
+	#monarch path
+	
+	focus = {
+		id = UKC_king
+		icon = GFX_goal_art_propaganda
+		cost = 10.00
+		available = {
+			has_completed_focus = CAN_kingly_prerogative
+		}		
+		prerequisite = {
+			focus = UKC_Liberty_Day
+		}
+		mutually_exclusive = {
+			focus = UKC_election
+		}
+		x = 30
+		y = 11
+		
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = UKC_dealwithquebeck
+		icon = GFX_goal_tfv_can_compromise_with_quebec
+		cost = 10.00
+		prerequisite = {
+			focus = UKC_king
+		}
+		x = 29
+		y = 12
+		ai_will_do = {
+			factor = 3
+		}
+		completion_reward = {
+			
+		}
+	}
+	
+	#focus = {
+	#	id = UKC_francobritishunion
+	#	icon = GFX_goal_tfv_can_compromise_with_quebec
+	#	cost = 10.00
+	#	prerequisite = {
+	#		focus = UKC_dealwithquebeck
+	#	}
+	#	x = 29
+	#	y = 13
+	#	ai_will_do = {
+	#		factor = 3
+	#	}
+	#	completion_reward = {
+	#		
+	#	}
+	#}
+	
+	#election path
+	
+	focus = {
+		id = UKC_election
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		available = {
+			
+		}		
+		prerequisite = {
+			focus = UKC_Liberty_Day
+		}
+		mutually_exclusive = {
+			focus = UKC_king
+		}
+		x = 34
+		y = 11
+		
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = UKC_so_cred
+		icon = GFX_goal_production
+		cost = 0
+		available = {
+			
+		}		
+		prerequisite = {
+			focus = UKC_election
+		}
+		mutually_exclusive = {
+			
+		}
+		x = 31
+		y = 12
+		
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = UKC_UK_noelection
+		icon = GFX_goal_state_economy
+		prerequisite = { focus = UKC_so_cred focus = UKC_conservative}
+		x = 31
+		y = 13
+		cost = 10
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			add_ideas = state_company
+		}
+	}
+	
+	focus = {
+		id = UKC_eagle_scout_soliders
+		icon = GFX_goal_national_populism
+		prerequisite = { focus = UKC_UK_noelection }
+		x = 31
+		y = 14
+		cost = 10
+		
+		available = {
+			OR = {
+				has_completed_focus = UKC_so_cred
+				has_completed_focus = UKC_conservative
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = UKC_devour_the_enemy
+		icon = GFX_goal_offensive_army
+		prerequisite = { focus = UKC_eagle_scout_soliders }
+		x = 31
+		y = 15
+		cost = 10
+		
+		available = {
+			has_completed_focus = UKC_so_cred
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = UKC_conservative
+		icon = GFX_goal_liberty
+		cost = 0
+		available = {
+			
+		}		
+		prerequisite = {
+			focus = UKC_election
+		}
+		mutually_exclusive = {
+			
+		}
+		x = 33
+		y = 12
+		
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = UKC_UK_mi5
+		icon = GFX_goal_forever_eyes_program
+		prerequisite = { focus = UKC_conservative focus = UKC_so_cred focus = UKC_liberal }
+		x = 33
+		y = 13
+		cost = 10
+		
+		ai_will_do = {
+			factor = 20
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = UKC_remember_the_dead
+		icon = GFX_goal_graveyard
+		prerequisite = { focus = UKC_UK_mi5 }
+		x = 33
+		y = 14
+		cost = 10
+		
+		available = {
+			OR = {
+				has_completed_focus = UKC_so_cred
+				has_completed_focus = UKC_conservative
+				has_completed_focus = UKC_liberal
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = UKC_surveillance_at_home_and_abroad
+		icon = GFX_goal_secret_police
+		prerequisite = { focus = UKC_remember_the_dead }
+		x = 33
+		y = 15
+		cost = 10
+		
+		available = {
+			has_completed_focus = UKC_conservative
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = UKC_liberal
+		icon = GFX_goal_ideology_social_liberal
+		cost = 0
+		available = {
+			
+		}		
+		prerequisite = {
+			focus = UKC_election
+		}
+		mutually_exclusive = {
+			
+		}
+		x = 35
+		y = 12
+		
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = UKC_begin_reconstruction
+		icon = GFX_goal_dam
+		cost = 10
+		available = {
+			
+		}		
+		prerequisite = {
+			focus = UKC_conservative
+			focus = UKC_liberal
+			focus = UKC_leftist
+		}
+		mutually_exclusive = {
+			
+		}
+		x = 35
+		y = 13
+		
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = UKC_continue_reconstruction
+		icon = GFX_focus_AUS_agriculture
+		cost = 10
+		available = {
+			OR = {
+				has_completed_focus = UKC_leftist
+				has_completed_focus = UKC_liberal
+				has_completed_focus = UKC_conservative
+			}
+		}		
+		prerequisite = {
+			focus = UKC_begin_reconstruction
+		}
+		mutually_exclusive = {
+			
+		}
+		x = 35
+		y = 14
+		
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = UKC_voting_reform
+		icon = GFX_focus_AUS_naturfreunde
+		cost = 10
+		available = {
+			has_completed_focus = UKC_liberal
+		}		
+		prerequisite = {
+			focus = UKC_continue_reconstruction
+		}
+		mutually_exclusive = {
+			
+		}
+		x = 35
+		y = 15
+		
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = UKC_leftist
+		icon = GFX_goal_syndicalist_industry
+		cost = 0
+		available = {
+			
+		}		
+		prerequisite = {
+			focus = UKC_election
+		}
+		mutually_exclusive = {
+			
+		}
+		x = 37
+		y = 12
+		
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = UKC_UK_election
+		icon = GFX_goal_ideology_radical_socialist
+		prerequisite = { focus = UKC_leftist focus = UKC_liberal}
+		x = 37
+		y = 13
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			add_ideas = commie_council
+		}
+	}
+	
+	focus = {
+		id = UKC_estate_tax
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = UKC_UK_election }
+		x = 37
+		y = 14
+		cost = 10
+		
+		available = {
+			OR = {
+				has_completed_focus = UKC_leftist
+				has_completed_focus = UKC_liberal
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = UKC_hm_revolutionary_guard
+		icon = GFX_goal_tfv_burn_the_royal_portraits
+		prerequisite = { focus = UKC_estate_tax }
+		x = 37
+		y = 15
+		cost = 10
+		
+		available = {
+			OR = {
+				has_completed_focus = UKC_leftist
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = UKC_UK_overcome_syn
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = UKC_devour_the_enemy focus = UKC_surveillance_at_home_and_abroad focus = UKC_hm_revolutionary_guard focus = UKC_voting_reform }
+		mutually_exclusive = { focus = UKC_UK_root_syn }
+		x = 34
+		y = 16
+		cost = 10
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		completion_reward = {
+			remove_ideas = UK_politics_syn_idea
 		}
 	}
 }
