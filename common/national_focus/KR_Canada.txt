@@ -5801,6 +5801,10 @@ focus_tree = {
 		y = 13
 		cost = 10
 		
+		available = {
+			national_populist > 0.10
+		}
+		
 		ai_will_do = {
 			factor = 1
 		}
@@ -5821,7 +5825,7 @@ focus_tree = {
 		available = {
 			OR = {
 				has_completed_focus = UKC_so_cred
-				has_completed_focus = UKC_conservative
+				national_populist > 0.20
 			}
 		}
 		
@@ -5884,6 +5888,10 @@ focus_tree = {
 		y = 13
 		cost = 10
 		
+		available = {
+			social_conservative > 0.10
+		}
+		
 		ai_will_do = {
 			factor = 20
 		}
@@ -5903,9 +5911,8 @@ focus_tree = {
 		
 		available = {
 			OR = {
-				has_completed_focus = UKC_so_cred
 				has_completed_focus = UKC_conservative
-				has_completed_focus = UKC_liberal
+				social_conservative > 0.20
 			}
 		}
 		
@@ -5965,7 +5972,7 @@ focus_tree = {
 		icon = GFX_goal_dam
 		cost = 10
 		available = {
-			
+			market_liberal >0.10
 		}		
 		prerequisite = {
 			focus = UKC_conservative
@@ -5989,9 +5996,8 @@ focus_tree = {
 		cost = 10
 		available = {
 			OR = {
-				has_completed_focus = UKC_leftist
 				has_completed_focus = UKC_liberal
-				has_completed_focus = UKC_conservative
+				market_liberal > 0.20
 			}
 		}		
 		prerequisite = {
@@ -6058,6 +6064,10 @@ focus_tree = {
 		y = 13
 		cost = 10
 		
+		available = {
+			social_democrat >0.10
+		}
+		
 		ai_will_do = {
 			factor = 10
 		}
@@ -6078,7 +6088,7 @@ focus_tree = {
 		available = {
 			OR = {
 				has_completed_focus = UKC_leftist
-				has_completed_focus = UKC_liberal
+				social_democrat > 0.20
 			}
 		}
 		
