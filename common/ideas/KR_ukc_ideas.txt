@@ -233,5 +233,33 @@ ideas = {
 				army_armor_defence_factor = 0.05
 			}
 		}
+		UKC_watching = {
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			picture = ast_all_in
+			
+			modifier = {
+				decryption_factor = 2.0
+				encryption_factor = 1.0
+			}
+		}
+		
+		UKC_lestweforget = {
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			picture = the_war_to_end_all_wars
+			
+			modifier = {
+				conscription = 0.03
+			}
+		}
 	}
 }

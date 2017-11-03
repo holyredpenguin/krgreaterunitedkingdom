@@ -5777,7 +5777,7 @@ focus_tree = {
 		icon = GFX_goal_production
 		cost = 0
 		available = {
-			
+			has_country_flag = UKC_so_cred_victory
 		}		
 		prerequisite = {
 			focus = UKC_election
@@ -5802,7 +5802,7 @@ focus_tree = {
 		cost = 10
 		
 		available = {
-			national_populist > 0.10
+			national_populist > 0.20
 		}
 		
 		ai_will_do = {
@@ -5825,7 +5825,7 @@ focus_tree = {
 		available = {
 			OR = {
 				has_completed_focus = UKC_so_cred
-				national_populist > 0.20
+				national_populist > 0.30
 			}
 		}
 		
@@ -5864,7 +5864,7 @@ focus_tree = {
 		icon = GFX_goal_liberty
 		cost = 0
 		available = {
-			
+			has_country_flag = UKC_torrie_victory
 		}		
 		prerequisite = {
 			focus = UKC_election
@@ -5889,7 +5889,7 @@ focus_tree = {
 		cost = 10
 		
 		available = {
-			social_conservative > 0.10
+			social_conservative > 0.20
 		}
 		
 		ai_will_do = {
@@ -5897,7 +5897,7 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			
+			add_national_unity = 0.05
 		}
 	}
 	
@@ -5912,7 +5912,7 @@ focus_tree = {
 		available = {
 			OR = {
 				has_completed_focus = UKC_conservative
-				social_conservative > 0.20
+				social_conservative > 0.30
 			}
 		}
 		
@@ -5921,7 +5921,7 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			
+			add_ideas = UKC_lestweforget
 		}
 	}
 	
@@ -5942,7 +5942,7 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			
+			add_ideas = UKC_watching
 		}
 	}
 	
@@ -5951,7 +5951,7 @@ focus_tree = {
 		icon = GFX_goal_ideology_social_liberal
 		cost = 0
 		available = {
-			
+			has_country_flag = UKC_liberal_victory
 		}		
 		prerequisite = {
 			focus = UKC_election
@@ -5972,7 +5972,7 @@ focus_tree = {
 		icon = GFX_goal_dam
 		cost = 10
 		available = {
-			market_liberal >0.10
+			market_liberal >0.20
 		}		
 		prerequisite = {
 			focus = UKC_conservative
@@ -5997,7 +5997,7 @@ focus_tree = {
 		available = {
 			OR = {
 				has_completed_focus = UKC_liberal
-				market_liberal > 0.20
+				market_liberal > 0.30
 			}
 		}		
 		prerequisite = {
@@ -6040,7 +6040,7 @@ focus_tree = {
 		icon = GFX_goal_syndicalist_industry
 		cost = 0
 		available = {
-			
+			has_country_flag = UKC_leftist_victory
 		}		
 		prerequisite = {
 			focus = UKC_election
@@ -6065,7 +6065,7 @@ focus_tree = {
 		cost = 10
 		
 		available = {
-			social_democrat >0.10
+			social_democrat >0.20
 		}
 		
 		ai_will_do = {
@@ -6088,7 +6088,7 @@ focus_tree = {
 		available = {
 			OR = {
 				has_completed_focus = UKC_leftist
-				social_democrat > 0.20
+				social_democrat > 0.30
 			}
 		}
 		
@@ -6139,6 +6139,821 @@ focus_tree = {
 		
 		completion_reward = {
 			remove_ideas = UK_politics_syn_idea
+		}
+	}
+	
+	#Rebuilding the Empire
+	
+	focus = {# Rebuilding the Empire
+		id = UKC_rebuilding_the_empire
+		icon = GFX_goal_british_monarchy
+		prerequisite = { focus = UKC_Liberty_Day }
+		cost = 10.00
+		available = {
+			NOT = {
+				AND = {
+					has_idea = UK_politics_syn_idea
+					has_idea = UK_military_syn_idea
+					has_idea = UK_economy_syn_idea
+				}
+			}
+		}								
+		x = 47
+		y = 11
+		completion_reward = {
+			#country_event = { id = uk.50 }
+			#hidden_effect = {
+			#	country_event = { id = uk.9000 }
+			#}			
+		}
+	}
+	
+	focus = {
+		id = developatlantic
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = UKC_rebuilding_the_empire }
+		x = 40
+		y = 12
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			CAF = {
+				random_owned_controlled_state = {
+					limit = {
+						is_in_home_area = yes
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_in_home_area = yes
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_in_home_area = yes
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = developatlantic2
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = developatlantic }
+		prerequisite = { focus = cafcloserties }
+		x = 41
+		y = 13
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			CAF = {
+				random_owned_controlled_state = {
+					limit = {
+						is_in_home_area = yes
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_in_home_area = yes
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_in_home_area = yes
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_in_home_area = yes
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_in_home_area = yes
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_in_home_area = yes
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = cafcloserties
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = UKC_rebuilding_the_empire }
+		x = 42
+		y = 12
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			CAF = {
+				country_event = ukc.4
+			}
+		}
+	}
+	
+	focus = {
+		id = demandfalklands
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = developatlantic2 }
+		available = {
+			NOT = {
+				CAN = {
+					owns_state = 720
+					owns_state = 299
+				}
+			}
+		}
+		x = 40
+		y = 14
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = intergratecaf
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = developatlantic2 }
+		available = {
+			CAF = { is_puppet_of = CAN }
+		}
+		x = 42
+		y = 14
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			CAN = {
+				annex_country = { target = CAF }
+			}
+		}
+	}
+	
+	focus = {
+		id = gibraltarprop
+		icon = GFX_goal_monarchism_black
+		prerequisite = { focus = UKC_rebuilding_the_empire }
+		x = 48
+		y = 12
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			CAN = {
+				add_state_core = 118
+			}
+		}
+	}
+	
+	focus = {
+		id = buygibraltar
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = gibraltarprop }
+		mutually_exclusive = { focus = rockelections }
+		available = {
+			NOT = {
+				CAN = {
+					owns_state = 118
+				}
+			}
+		}
+		x = 47
+		y = 13
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = rockelections
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = gibraltarprop }
+		mutually_exclusive = { focus = buygibraltar }
+		available = {
+			NOT = {
+				CAN = {
+					owns_state = 118
+				}
+			}
+		}
+		x = 49
+		y = 13
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			if = {
+				limit = {
+					SPR = {
+						controls_state = 118
+					}
+				}
+				SPR = {
+					country_event = ukc.5
+				}
+			}
+			if = {
+				limit = {
+					CNT = {
+						controls_state = 118
+					}
+				}
+				CNT = {
+					country_event = ukc.5
+				}
+			}
+			if = {
+				limit = {
+					CAR = {
+						controls_state = 118
+					}
+				}
+				CAR = {
+					country_event = ukc.5
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = demandgibraltar
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = rockelections focus = gibraltarprop focus = buygibraltar }
+		available = {
+			NOT = {
+				CAN = {
+					owns_state = 118
+				}
+			}
+		}
+		x = 48
+		y = 14
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {# Fortify the Rock
+		id = UKC_fortify_the_rock
+		icon = GFX_goal_fortify_the_westwall
+		cost = 10.00
+		available = { 118 = { is_owned_by = CAN } }		
+		prerequisite = {
+			focus = demandgibraltar
+			focus = rockelections
+			focus = buygibraltar
+		}
+		x = 48
+		y = 15
+		completion_reward = {
+			custom_effect_tooltip = UK_fortify_the_rock_tp
+			if = {
+				limit = { 118 = { is_owned_by = GBR } }			
+				118 = {
+					add_building_construction = { type = bunker province = 4135 level = 3 instant_build = yes }
+				}
+			}
+		}
+	}
+	focus = {# Status of Malta
+		id = UKC_status_of_malta
+		icon = GFX_goal_constitutional_guarantees
+		cost = 10.00
+		available = { 116 = { is_owned_by = GER } }										
+		prerequisite = {
+			focus = UKC_fortify_the_rock
+		}
+		x = 49
+		y = 16
+		completion_reward = {
+			#GER = { country_event = { id = uk.207 } }
+		}
+	}
+	focus = {# Mediterranean Fortress
+		id = UKC_mediterranian_fortress
+		icon = GFX_goal_fortify_the_westwall
+		cost = 10.00
+		available = { 116 = { is_owned_by = GBR } }												
+		prerequisite = {
+			focus = UKC_status_of_malta
+		}
+		x = 49
+		y = 17
+		completion_reward = {
+			custom_effect_tooltip = UK_mediterranian_fortress_tp		
+			if = {
+				limit = { 116 = { is_owned_by = UKC } }			
+				116 = {
+					add_building_construction = { type = bunker province = 12003 level = 3 instant_build = yes }
+				}
+			}
+		}
+	}
+	focus = {# Complete Mediterranean Fortress
+		id = UKC_complete_mediterranian_fortress
+		icon = GFX_goal_fortify_the_westwall
+		cost = 10.00
+		available = {
+			OR = {
+				183 = { is_owned_by = CAN }
+				AND = { 
+					country_exists = CYP
+					CYP = {is_in_faction_with = CAN }
+				}
+			}	
+		}												
+		prerequisite = {
+			focus = UKC_mediterranian_fortress
+		}
+		prerequisite = {
+			focus = UKC_status_of_cyprus
+		}
+		prerequisite = {
+			focus = UKC_secure_the_suez
+		}
+		x = 50
+		y = 18
+		completion_reward = {
+			custom_effect_tooltip = UK_mediterranian_fortress_finished_tp		
+			183 = {
+				add_building_construction = { type = bunker province = 7193 level = 3 instant_build = yes }
+				add_building_construction = { type = bunker province = 11984 level = 3 instant_build = yes }
+			}
+		}
+	}
+	focus = {# Status of Cyprus
+		id = UKC_status_of_cyprus
+		icon = GFX_goal_constitutional_guarantees
+		cost = 10.00
+		available = {
+			OR = {
+				183 = { is_owned_by = OTT }
+				183 = { is_owned_by = CYP }
+			}	
+		}		
+		prerequisite = {
+			focus = UKC_fortify_the_rock
+		}
+		x = 47
+		y = 17
+		completion_reward = {
+			#if = {# negotiate with the Ottomans
+			#	limit = { 183 = { is_owned_by = OTT } }
+			#	OTT = { country_event = { id = uk.210 days = 1 } }
+			#}
+			#if = {# negotiate with the Cyproites
+			#	limit = { 183 = { is_owned_by = CYP } } 
+			#	CYP = { country_event = { id = uk.213 days = 1 } }
+			#}			
+		}
+	}
+	
+	############# Irish policy #######	
+	focus = {# Irish Policy
+		id = UKC_irish_policy
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = UKC_rebuilding_the_empire
+		}
+		x = 56
+		y = 12
+		ai_will_do = {
+			factor = 20
+		}		
+		completion_reward = {
+			country_event = { id = uk.51 }
+		}
+	}
+	focus = {# Treaty with Ireland
+		id = UKC_irish_treaty
+		icon = GFX_goal_generic_major_alliance
+		cost = 10.00
+		available = { has_global_flag = UK_irish_treaty }								
+		prerequisite = {
+			focus = UKC_irish_policy
+		}
+		mutually_exclusive = {
+			focus = UKC_renew_act_of_union
+			focus = UKC_irish_home_rule
+		}
+		x = 54
+		y = 13
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			if = {
+				limit = { NOT = { is_in_faction_with = IRE } }
+				IRE = { country_event = { id = uk.55 } }
+			}
+			if = {
+				limit = { is_in_faction_with = IRE  }
+				IRE = { country_event = { id = uk.58 } }
+			}			
+		}
+	}
+	focus = {# Renew the Act of Union
+		id = UKC_renew_act_of_union
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		cost = 10.00
+		available = { has_global_flag = UK_irish_restoration }								
+		prerequisite = {
+			focus = UKC_irish_policy
+		}
+		mutually_exclusive = {
+			focus = UKC_irish_treaty
+			focus = UKC_irish_home_rule
+			
+		}
+		x = 56
+		y = 13
+		ai_will_do = {
+			factor = 20
+		}		
+		completion_reward = {
+			IRE = { country_event = { id = uk.52 } }
+		}
+	}
+	focus = {# Irish Home Rule Act
+		id = UKC_irish_home_rule
+		icon = GFX_goal_new_treaty
+		cost = 10.00
+		available = { has_global_flag = uk_irish_home_rule }								
+		
+		prerequisite = {
+			focus = UKC_irish_policy
+		}
+		mutually_exclusive = {
+			focus = UKC_irish_treaty
+			focus = UKC_renew_act_of_union
+			
+		}		
+		x = 58
+		y = 13
+		ai_will_do = {
+			factor = 20
+		}		
+		completion_reward = {
+			IRE = { country_event = { id = uk.60 } }
+		}
+	}
+	focus = {# Crush the IRA
+		id = UKC_crush_the_ira
+		icon = GFX_goal_ideology_authoritarian_democrat
+		cost = 10.00
+		available = { has_global_flag = UK_has_ireland }										
+		prerequisite = {
+			focus = UKC_irish_home_rule
+			focus = UKC_renew_act_of_union
+		}
+		x = 57
+		y = 14
+		completion_reward = {
+			remove_ideas = GBR_ira_idea
+		}
+	}
+	focus = {# Invest in Ireland
+		id = UKC_irish_investments
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 10.00
+		available = {
+			or = {
+				has_global_flag = UK_irish_treaty_signed
+				has_global_flag = UK_home_rule_established
+				has_global_flag = UK_act_of_union_renewed				
+			}
+		}
+		prerequisite = {
+			focus = UKC_irish_home_rule
+			focus = UKC_irish_treaty
+			focus = UKC_renew_act_of_union
+		}
+		x = 55
+		y = 14
+		completion_reward = {
+			113 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes	
+				}
+			}
+			119 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes	
+				}
+			}			
+		}
+	}
+	
+	#India
+	
+	focus = {# The India Act
+		id = UKC_india_act
+		icon = GFX_focus_RAJ_all_india_forward_bloc
+		cost = 10.00
+		prerequisite = {
+			focus = UKC_rebuilding_the_empire
+		}
+		x = 44
+		y = 12
+		completion_reward = {
+			add_political_power = 150
+		}
+	}	
+	focus = {# War for the Jewel
+		id = UKC_war_for_the_jewel
+		icon = GFX_focus_RAJ_british_investors
+		cost = 10.00
+		available = { NOT = { country_exists = DEH } }										
+		prerequisite = {
+			focus = UKC_india_act
+		}
+		mutually_exclusive = {
+			focus = UKC_indian_british_policy
+		}
+		x = 43
+		y = 13
+		completion_reward = {
+			if = { 
+				limit = {
+					country_exists = BHC
+					NOT = {	country_exists = DEH }
+				}
+				declare_war_on = { target = BHC type = annex_everything }
+				add_named_threat = { threat = 8 name = GBR_attacks_indian_commune }				
+			}
+			if = { 
+				limit = {
+					country_exists = PRF
+					NOT = {	country_exists = DEH }
+				}
+				declare_war_on = { target = PRF type = annex_everything }
+				add_named_threat = { threat = 8 name = GBR_attacks_princely_federation }				
+			}			
+		}
+	}
+	focus = {# Indian British Policy
+		id = UKC_indian_british_policy
+		icon = GFX_goal_india_dominion
+		cost = 10.00
+		available = { 
+			NOT = { country_exists = PRF } 
+			NOT = { country_exists = BHC } 
+		}												
+		prerequisite = {
+			focus = UKC_india_act
+		}
+		mutually_exclusive = {
+			focus = UKC_war_for_the_jewel
+		}
+		x = 45
+		y = 13
+		completion_reward = {
+			add_opinion_modifier = { target = DEH modifier = GBR_british_indian_relations }
+			DEH = { add_opinion_modifier = { target = ROOT modifier = GBR_british_indian_relations } }
+		}
+	}
+	
+	focus = {# British Indian Government
+		id = UKC_british_indian_government
+		icon = GFX_focus_RAJ_all_india_forward_bloc
+		cost = 10.00
+		prerequisite = {
+			focus = UKC_war_for_the_jewel
+			focus = UKC_indian_british_policy
+		}
+		x = 44
+		y = 14
+		completion_reward = {
+			DEH = { country_event = { id = uk.109 } }
+		}	
+	}
+	
+	focus = {# Crush Egypt
+		id = UKC_crush_egypt
+		icon = GFX_goal_generic_territory_or_war
+		cost = 10.00
+		prerequisite = {
+			focus = UKC_rebuilding_the_empire
+		}
+		mutually_exclusive = {
+			focus = UKC_treaty_with_egypt
+		}
+		x = 50
+		y = 12
+		completion_reward = {
+				declare_war_on = { target = EGY type = annex_everything }
+				add_named_threat = { threat = 8 name = UKC_attacks_egypt }							
+		}
+	}
+	focus = {# Egyptian Treaty
+		id = UKC_treaty_with_egypt
+		icon = GFX_goal_new_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = UKC_rebuilding_the_empire
+		}
+		mutually_exclusive = {
+			focus = UKC_crush_egypt
+		}
+		x = 52
+		y = 12
+		completion_reward = {
+			EGY = { country_event = { id = uk.222 } }
+		}
+	}
+	focus = {# Secure the Suez
+		id = UKC_secure_the_suez
+		icon = GFX_goal_generic_occupy_states_coastal
+		cost = 10.00
+		available = { 753 = { is_owned_by = EGY } }
+		bypass = { 753 = { is_owned_by = UKC }  }		
+		prerequisite = {
+			focus = UKC_treaty_with_egypt
+			focus = UKC_crush_egypt
+		}
+		x = 51
+		y = 13
+		completion_reward = {
+			EGY = { country_event = { id = uk.225 } }
+		}
+	}
+	focus = {# Status of Singapore
+		id = UKC_status_of_singapore
+		icon = GFX_goal_new_treaty
+		cost = 10.00
+		available = { 336 = { is_owned_by = GER } }														
+		prerequisite = {
+			focus = UKC_secure_the_suez
+		}
+		x = 51
+		y = 14
+		completion_reward = {
+			GER = { country_event = { id = uk.216 } }
+		}
+	}
+	focus = {# Hong Kong Treaty
+		id = UKC_hong_kong_treaty
+		icon = GFX_goal_new_treaty
+		cost = 10.00
+		available = { 326 = { is_owned_by = LEC } }												
+		prerequisite = {
+			focus = UKC_status_of_singapore
+		}
+		x = 51
+		y = 15
+		completion_reward = {
+			LEC = { country_event = { id = uk.219 } }
 		}
 	}
 }

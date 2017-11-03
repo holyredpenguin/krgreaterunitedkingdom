@@ -98,7 +98,7 @@ country_event = {
 		ai_chance = { factor = 100 }
 		add_political_power = 200
 		hidden_effect = {
-			UKC = {
+			CAN = {
 				puppet = CAF
 			}
 		}
@@ -125,7 +125,7 @@ country_event = {
 	
 	option = {
 		name = ukc.5.b
-		UKC = {
+		CAN = {
 			country_event = ukc.6
 		}
 	}
@@ -165,7 +165,7 @@ country_event = {
 				remove_state_core = 118
 				add_ideas = rock_payments
 			}
-			UKC = {
+			CAN = {
 				transfer_state = 118
 			}
 		}
@@ -179,7 +179,7 @@ country_event = {
 				remove_state_core = 118
 				add_ideas = rock_payments
 			}
-			UKC = {
+			CAN = {
 				transfer_state = 118
 			}
 		}
@@ -193,14 +193,14 @@ country_event = {
 				remove_state_core = 118
 				add_ideas = rock_payments
 			}
-			UKC = {
+			CAN = {
 				transfer_state = 118
 			}
 		}
 	}
 	option = {
 		name = ukc.7.b
-		UKC = {
+		CAN = {
 			country_event = ukc.6
 		}
 	}
@@ -241,14 +241,14 @@ country_event = {
 			remove_state_core = 299
 			remove_state_core = 720
 		}
-		UKC = {
+		CAN = {
 			transfer_state = 299
 			transfer_state = 720
 		}
 	}
 	option = {
 		name = ukc.9.b
-		UKC = {
+		CAN = {
 			country_event = ukc.8
 		}
 	}
@@ -263,8 +263,8 @@ country_event = {
 
 	trigger = {
 		AND = {
-			UKC = { has_full_control_of_state = 299 }
-			UKC = { has_full_control_of_state = 720 }
+			CAN = { has_full_control_of_state = 299 }
+			CAN = { has_full_control_of_state = 720 }
 		}
 	}
 	
@@ -272,7 +272,7 @@ country_event = {
 		name = ukc.10
 		299 = { set_state_name = "Falkland Islands" }
 		720 = { set_state_name = "South Georgia & South Sandwich Islands" }
-		UKC = {
+		CAN = {
 			add_state_core = 299
 			add_state_core = 720
 		}
@@ -349,7 +349,7 @@ country_event = {
 			SPR = {
 				remove_state_core = 118
 			}
-			UKC = {
+			CAN = {
 				transfer_state = 118
 			}
 		}
@@ -362,7 +362,7 @@ country_event = {
 			CNT = {
 				remove_state_core = 118
 			}
-			UKC = {
+			CAN = {
 				transfer_state = 118
 			}
 		}
@@ -375,15 +375,44 @@ country_event = {
 			CAR = {
 				remove_state_core = 118
 			}
-			UKC = {
+			CAN = {
 				transfer_state = 118
 			}
 		}
 	}
 	option = {
 		name = ukc.12.b
-		UKC = {
+		CAN = {
 			country_event = ukc.11
 		}
+	}
+}
+
+#Election Events
+
+#election
+country_event = {
+	id = ukc.1001
+	title = ukc.1001.t
+	desc = ukc.1001.desc
+	picture = UK_country_parliament
+
+	is_triggered_only = yes
+	
+	option = {
+		name = ukc.1001.a
+		set_country_flag = UKC_so_cred_victory
+	}
+	option = {
+		name = ukc.1001.b
+		set_country_flag = UKC_torrie_victory
+	}
+	option = {
+		name = ukc.1001.c
+		set_country_flag = UKC_liberal_victory
+	}
+	option = {
+		name = ukc.1001.d
+		set_country_flag = UKC_leftist_victory
 	}
 }
