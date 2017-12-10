@@ -62,7 +62,10 @@ UKC_so_cred_victory:0 "The Social Credit Party has won the Election"
 UKC_torrie_victory:0 "The Tories have won the Election"
 UKC_liberal_victory:0 "The Liberal Party has won the Election"
 UKC_leftist_victory:0 "The Leftist Coalition has won the Election"
-
+uk_irish_home_rule:0 "Irish Home Rule"
+UK_irish_treaty:0 "Irish Treaty"
+UK_irish_restoration:0 "Acts of Union Renewed"
+QuebecRemains:0 "Quebec remains part of the Empire"
 #########################
 #Names
 #########################

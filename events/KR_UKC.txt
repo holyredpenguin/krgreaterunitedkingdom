@@ -120,14 +120,57 @@ country_event = {
 
 	option = {
 		name = ukc.5.a
-		
+		random_list = { 
+			98 = {
+				hidden_effect = {
+					if = {
+						limit = {
+							SPR = {
+								controls_state = 118
+							}
+						}
+						SPR = {
+							remove_state_core = 118
+						}
+						CAN = {
+							transfer_state = 118
+						}
+					}
+					if = {
+						limit = {
+							CNT = {
+								controls_state = 118
+							}
+						}
+						CNT = {
+							remove_state_core = 118
+						}
+						CAN = {
+							transfer_state = 118
+						}
+					}
+					if = {
+						limit = {
+							CAR = {
+								controls_state = 118
+							}
+						}
+						CAR = {
+							remove_state_core = 118
+						}
+						CAN = {
+							transfer_state = 118
+						}
+					}
+				}
+			}
+			2 = {  }
+		}
 	}
 	
 	option = {
 		name = ukc.5.b
-		CAN = {
-			country_event = ukc.6
-		}
+		
 	}
 }
 
@@ -141,7 +184,42 @@ country_event = {
 
 	option = {
 		name = ukc.6.a
-		
+		if = {
+			limit = {
+				SPR = {
+					controls_state = 118
+				}
+			}
+			create_wargoal = {
+				type = take_state_focus
+				target = SPR
+				generator = { 118 }
+			}
+		}
+		if = {
+			limit = {
+				CNT = {
+					controls_state = 118
+				}
+			}
+			create_wargoal = {
+				type = take_state_focus
+				target = CNT
+				generator = { 118 }
+			}
+		}
+		if = {
+			limit = {
+				CAR = {
+					controls_state = 118
+				}
+			}
+			create_wargoal = {
+				type = take_state_focus
+				target = CAR
+				generator = { 118 }
+			}
+		}
 	}
 }
 
@@ -201,7 +279,7 @@ country_event = {
 	option = {
 		name = ukc.7.b
 		CAN = {
-			country_event = ukc.6
+			
 		}
 	}
 }
@@ -388,6 +466,861 @@ country_event = {
 	}
 }
 
+country_event = {# Renew Act of the Union(what should Ireland do?)
+	id = ukc.52
+	title = ukc.52.t
+	desc = ukc.52.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# Accept(Game Over)
+		name = ukc.52.a
+		ai_chance = { factor = 5 }		
+		CAN = { country_event = { id = ukc.53 } }		
+	}
+	option = {# We shall never Surrender!
+		name = ukc.52.b
+		ai_chance = { factor = 95 }		
+		CAN = { country_event = { id = ukc.54 } }				
+	}	
+}
+country_event = {# Renew Act of the Union(Ireland Accepts)
+	id = ukc.53
+	title = ukc.53.t
+	desc = ukc.53.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# Welcome back!
+		name = ukc.53.a
+		annex_country = { target = IRE transfer_troops = no }
+		set_global_flag = UK_has_ireland
+		set_global_flag = UK_act_of_union_renewed
+		add_ideas = GBR_ira_idea				
+	}
+}
+country_event = {# Renew Act of the Union(Ireland Refuses)
+	id = ukc.54
+	title = ukc.54.t
+	desc = ukc.54.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# Ireland is ours!
+		name = ukc.54.a
+		ai_chance = { factor = 60 }		
+		declare_war_on = { target = IRE type = annex_everything	}
+		add_political_power = -100
+		
+	}
+	option = {# Back Down
+		name = ukc.54.b
+		ai_chance = { factor = 40 }				
+		add_political_power = 100
+	}	
+}
+country_event = {# Treaty with the UK(Ireland not part of the Entente)
+	id = ukc.55
+	title = ukc.55.t
+	desc = ukc.55.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# accept the Treaty
+		name = ukc.55.a
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0.17
+				OR = {
+					IRE = { is_in_faction_with = GER }
+					IRE = { is_in_faction_with = USA }
+				}
+			}
+		}			
+		CAN = { country_event = { id = ukc.56 } }
+		if = {
+			limit = { GER = { is_in_faction_with = IRE } }
+			GER = {remove_from_faction = IRE}
+		}
+		if = {
+			limit = { USA = { is_in_faction_with = IRE } }
+			USA = {remove_from_faction = IRE}
+		}		
+	}
+	option = {# Don't accept the Treaty - propose non agression pact instead. 
+		name = ukc.55.b
+		CAN = { country_event = { id = ukc.57 } }			
+	}	
+}
+country_event = {# Treaty with the UK accepted (Ireland not part of the Entente)
+	id = ukc.56
+	title = ukc.56.t
+	desc = ukc.56.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+	
+	immediate = {
+
+	}	
+	
+	option = {# accept the Treaty
+		name = ukc.56.a
+		add_to_faction = IRE
+		add_opinion_modifier = { target = IRE modifier = IRE_accepted_treaty }
+		set_global_flag = UK_irish_treaty_signed		
+		CAN = {	set_cosmetic_tag = CAN_britain }
+		CAN = {	set_cosmetic_tag = CAN_britain }	
+		CAF = {	set_cosmetic_tag = CAF_britain }		
+	}	
+}
+country_event = {# Treaty with the UK not accepted (Ireland not part of the Entente) guarantee 
+	id = ukc.57
+	title = ukc.57.t
+	desc = ukc.57.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# No treaty but Non-agression is better then nothing
+		name = ukc.57.a
+		add_opinion_modifier = { target = IRE modifier = IRE_refused_treaty }
+		diplomatic_relation = { country = IRE relation = non_aggression_pact }
+		IRE = {
+			diplomatic_relation = { country = CAN relation = non_aggression_pact }
+		}
+		
+	}	
+}
+country_event = {# Treaty with the UK(Ireland part of the Entente)
+	id = ukc.58
+	title = ukc.58.t
+	desc = ukc.58.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# accept the Treaty
+		name = ukc.58.a
+		CAN = { country_event = { id = ukc.59 } }
+	}	
+}
+country_event = {# Treaty with the UK accepted (Ireland part of the Entente)
+	id = ukc.59
+	title = ukc.59.t
+	desc = ukc.59.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# accepted the Treaty
+		name = ukc.59.a
+		add_opinion_modifier = { target = IRE modifier = IRE_accepted_treaty }
+		reverse_add_opinion_modifier = { target = CAN modifier = IRE_accepted_treaty }
+		set_global_flag = UK_irish_treaty_signed		
+	}	
+}
+country_event = {# Irish Home Rule(ireland)
+	id = ukc.60
+	title = ukc.60.t
+	desc = ukc.60.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# accept
+		name = ukc.60.a
+		CAN = { country_event = { id = ukc.61 } }
+		set_cosmetic_tag = CAN_irish_home_rule
+		add_political_power = -100		
+	}	
+	option = {# refuse
+		name = ukc.60.b
+		CAN = { country_event = { id = ukc.62 } }
+		add_political_power = 100		
+	}	
+}
+country_event = {# Irish Home Rule accepted(UK)
+	id = ukc.61
+	title = ukc.61.t
+	desc = ukc.61.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# accept
+		name = ukc.61.a
+		add_ideas = CAN_ira_idea		
+		set_global_flag = UK_home_rule_established
+		set_global_flag = UK_has_ireland		
+		if = {
+			limit = { NOT = { is_in_faction_with = IRE } }
+			add_to_faction = IRE
+		}	
+	}		
+}
+country_event = {# Irish Home Rule rejected(UK)
+	id = ukc.62
+	title = ukc.62.t
+	desc = ukc.62.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# bloody irish
+		name = ukc.62.a
+	}		
+}country_event = {# Renew Act of the Union(what should Ireland do?)
+	id = uk.52
+	title = uk.52.t
+	desc = uk.52.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# Accept(Game Over)
+		name = uk.52.a
+		ai_chance = { factor = 5 }		
+		GBR = { country_event = { id = uk.53 } }		
+	}
+	option = {# We shall never Surrender!
+		name = uk.52.b
+		ai_chance = { factor = 95 }		
+		GBR = { country_event = { id = uk.54 } }				
+	}	
+}
+country_event = {# Renew Act of the Union(Ireland Accepts)
+	id = uk.53
+	title = uk.53.t
+	desc = uk.53.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# Welcome back!
+		name = uk.53.a
+		annex_country = { target = IRE transfer_troops = no }
+		set_global_flag = UK_has_ireland
+		set_global_flag = UK_act_of_union_renewed
+		add_ideas = GBR_ira_idea				
+	}
+}
+country_event = {# Renew Act of the Union(Ireland Refuses)
+	id = uk.54
+	title = uk.54.t
+	desc = uk.54.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# Ireland is ours!
+		name = uk.54.a
+		ai_chance = { factor = 60 }		
+		declare_war_on = { target = IRE type = annex_everything	}
+		add_political_power = -100
+		
+	}
+	option = {# Back Down
+		name = uk.54.b
+		ai_chance = { factor = 40 }				
+		add_political_power = 100
+	}	
+}
+country_event = {# Treaty with the UK(Ireland not part of the Entente)
+	id = uk.55
+	title = uk.55.t
+	desc = uk.55.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# accept the Treaty
+		name = uk.55.a
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0.17
+				OR = {
+					IRE = { is_in_faction_with = GER }
+					IRE = { is_in_faction_with = USA }
+				}
+			}
+		}			
+		GBR = { country_event = { id = uk.56 } }
+		if = {
+			limit = { GER = { is_in_faction_with = IRE } }
+			GER = {remove_from_faction = IRE}
+		}
+		if = {
+			limit = { USA = { is_in_faction_with = IRE } }
+			USA = {remove_from_faction = IRE}
+		}		
+	}
+	option = {# Don't accept the Treaty - propose non agression pact instead. 
+		name = uk.55.b
+		GBR = { country_event = { id = uk.57 } }			
+	}	
+}
+country_event = {# Treaty with the UK accepted (Ireland not part of the Entente)
+	id = uk.56
+	title = uk.56.t
+	desc = uk.56.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+	
+	immediate = {
+
+	}	
+	
+	option = {# accept the Treaty
+		name = uk.56.a
+		add_to_faction = IRE
+		add_opinion_modifier = { target = IRE modifier = IRE_accepted_treaty }
+		set_global_flag = UK_irish_treaty_signed		
+		GBR = {	set_cosmetic_tag = GBR_britain }
+		CAN = {	set_cosmetic_tag = CAN_britain }	
+		CAF = {	set_cosmetic_tag = CAF_britain }		
+	}	
+}
+country_event = {# Treaty with the UK not accepted (Ireland not part of the Entente) guarantee 
+	id = uk.57
+	title = uk.57.t
+	desc = uk.57.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# No treaty but Non-agression is better then nothing
+		name = uk.57.a
+		add_opinion_modifier = { target = IRE modifier = IRE_refused_treaty }
+		diplomatic_relation = { country = IRE relation = non_aggression_pact }
+		IRE = {
+			diplomatic_relation = { country = GBR relation = non_aggression_pact }
+		}
+		
+	}	
+}
+country_event = {# Treaty with the UK(Ireland part of the Entente)
+	id = uk.58
+	title = uk.58.t
+	desc = uk.58.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# accept the Treaty
+		name = uk.58.a
+		GBR = { country_event = { id = uk.59 } }
+	}	
+}
+country_event = {# Treaty with the UK accepted (Ireland part of the Entente)
+	id = uk.59
+	title = uk.59.t
+	desc = uk.59.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# accepted the Treaty
+		name = uk.59.a
+		add_opinion_modifier = { target = IRE modifier = IRE_accepted_treaty }
+		reverse_add_opinion_modifier = { target = GBR modifier = IRE_accepted_treaty }
+		set_global_flag = UK_irish_treaty_signed		
+	}	
+}
+country_event = {# Irish Home Rule(ireland)
+	id = uk.60
+	title = uk.60.t
+	desc = uk.60.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# accept
+		name = uk.60.a
+		GBR = { country_event = { id = uk.61 } }
+		set_cosmetic_tag = GBR_irish_home_rule
+		add_political_power = -100		
+	}	
+	option = {# refuse
+		name = uk.60.b
+		GBR = { country_event = { id = uk.62 } }
+		add_political_power = 100		
+	}	
+}
+country_event = {# Irish Home Rule accepted(UK)
+	id = uk.61
+	title = uk.61.t
+	desc = uk.61.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# accept
+		name = uk.61.a
+		add_ideas = GBR_ira_idea		
+		set_global_flag = UK_home_rule_established
+		set_global_flag = UK_has_ireland		
+		if = {
+			limit = { NOT = { is_in_faction_with = IRE } }
+			add_to_faction = IRE
+		}	
+	}		
+}
+country_event = {# Irish Home Rule rejected(UK)
+	id = uk.62
+	title = uk.62.t
+	desc = uk.62.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# bloody irish
+		name = uk.62.a
+	}		
+}
+
+country_event = {# British Want Malta
+	id = ukc.207
+	title = ukc.207.t
+	desc = ukc.207.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# We don't need Malta
+		name = ukc.207.a
+		ai_chance = { factor = 70 }		
+		CAN = { country_event = { id = ukc.208 days = 1 } }				
+	}
+	option = {# Leave us alone British
+		name = ukc.204.b
+		ai_chance = { factor = 30 }		
+		CAN = { country_event = { id = ukc.209 days = 1 } }				
+	}	
+}
+country_event = {# We got Malta
+	id = ukc.208
+	title = ukc.208.t
+	desc = ukc.208.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# yay
+		name = ukc.208.a
+		CAN = {
+			transfer_state = 116
+		}
+	}
+}
+country_event = {# the Germans didn't want to give us Malta
+	id = ukc.209
+	title = ukc.209.t
+	desc = ukc.209.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# Damn them!
+		name = ukc.209.a
+		add_opinion_modifier = { target = GER modifier = GBR_malta_refused }
+	}
+}
+
+#### Status of Cyprus ####
+country_event = {# British Want influence over Cyprus
+	id = ukc.210
+	title = ukc.210.t
+	desc = ukc.210.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# Accept the Loss of the Rock
+		name = ukc.210.a
+		ai_chance = { factor = 30 }		
+		CAN = { country_event = { id = ukc.211 days = 1 } }				
+	}
+	option = {# Never
+		name = ukc.210.b
+		ai_chance = { factor = 70 }		
+		CAN = { country_event = { id = ukc.212 days = 1 } }				
+	}	
+}
+country_event = {# We got Cyprus
+	id = ukc.211
+	title = ukc.211.t
+	desc = ukc.211.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# keep it for ourselves
+		name = ukc.211.a
+		ai_chance = { factor = 10 }				
+		CAN = {
+			transfer_state = 183
+		}
+	}
+	option = {# Cyprus is part of the Entente
+		name = ukc.212.a
+		ai_chance = { factor = 90 }				
+		CYP = {
+			transfer_state = 183
+		}
+		CAN = {
+			add_to_faction = CYP
+			give_guarantee = CYP
+		}
+	}	
+}
+country_event = {# They don't want to give it to us
+	id = ukc.212
+	title = ukc.212.t
+	desc = ukc.212.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# Damn them!
+		name = ukc.212.a
+		add_opinion_modifier = { target = OTT modifier = CAN_cyprus_refused_ottomans }
+	}	
+}
+country_event = {# British Want influence over Cyprus(Cyprus)
+	id = ukc.213
+	title = ukc.213.t
+	desc = ukc.213.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# yay for british support
+		name = ukc.213.a
+		ai_chance = { factor = 80 }		
+		CAN = { country_event = { id = ukc.214 days = 1 } }				
+	}
+	option = {# Never
+		name = ukc.213.b
+		ai_chance = { factor = 20 }		
+		CAN = { country_event = { id = ukc.215 days = 1 } }				
+	}	
+}
+country_event = {# Cyprus agrees
+	id = ukc.214
+	title = ukc.214.t
+	desc = ukc.214.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# yay
+		name = ukc.214.a
+		CAN = {
+			add_to_faction = CYP
+			give_guarantee = CYP
+		}
+	}
+}
+country_event = {# Cyprus says no
+	id = ukc.215
+	title = ukc.215.t
+	desc = ukc.215.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# Damn them!
+		name = ukc.215.a
+		add_opinion_modifier = { target = CYP modifier = CAN_cyprus_refused_cyprus }
+	}
+}
+
+# Egypt and other imperial events
+#### Treaty with Egypt ####
+country_event = {# Treaty with the British
+	id = ukc.222
+	title = ukc.222.t
+	desc = ukc.222.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# yay for british support
+		name = ukc.222.a
+		ai_chance = { factor = 80 }		
+		CAN = { country_event = { id = ukc.223 days = 1 } }				
+	}
+	option = {# Never
+		name = ukc.222.b
+		ai_chance = { factor = 20 }		
+		CAN = { country_event = { id = ukc.224 days = 1 } }				
+	}	
+}
+country_event = {# Egypt agrees
+	id = ukc.223
+	title = ukc.223.t
+	desc = ukc.223.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# yay
+		name = ukc.223.a
+		CAN = {	give_guarantee = EGY }
+		diplomatic_relation = { country = EGY relation = non_aggression_pact }		
+	}
+}
+country_event = {# Egypt says no
+	id = ukc.224
+	title = ukc.224.t
+	desc = ukc.224.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# Damn them!
+		name = ukc.224.a
+		add_opinion_modifier = { target = EGY modifier = CAN_egypt_refused }
+	}
+	option = {# War with Egypt
+		name = ukc.224.a
+		declare_war_on = { target = EGY type = annex_everything }
+		add_named_threat = { threat = 8 name = CAN_attacks_egypt }
+	}	
+}
+country_event = {# Join the Entente
+	id = ukc.225
+	title = ukc.225.t
+	desc = ukc.225.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# Join the Entente
+		name = ukc.225.a
+		ai_chance = { factor = 80 }		
+		CAN = { country_event = { id = ukc.226 days = 1 } }				
+	}
+	option = {# We don't need the Entente
+		name = ukc.225.b
+		ai_chance = { factor = 20 }		
+		CAN = { country_event = { id = ukc.227 days = 1 } }				
+	}	
+}
+country_event = {# Egypt agrees
+	id = ukc.226
+	title = ukc.226.t
+	desc = ukc.226.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# yay
+		name = ukc.226.a
+		add_to_faction = EGY
+	}
+}
+country_event = {# Egypt says no
+	id = ukc.227
+	title = ukc.227.t
+	desc = ukc.227.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# Damn them!
+		name = ukc.227.a
+		add_opinion_modifier = { target = EGY modifier = CAN_egypt_refused }
+	}
+	option = {# War with Egypt
+		name = ukc.227.a
+		declare_war_on = { target = EGY type = annex_everything }
+		add_named_threat = { threat = 8 name = CAN_attacks_egypt }
+	}	
+}
+
+#### Status of Singapore ####
+country_event = {# British Want Singapore
+	id = ukc.216
+	title = ukc.216.t
+	desc = ukc.216.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# We don't need Singapore
+		name = ukc.216.a
+		ai_chance = { factor = 40 }		
+		CAN = { country_event = { id = ukc.217 days = 1 } }				
+	}
+	option = {# Leave us alone British
+		name = ukc.216.b
+		ai_chance = { factor = 60 }		
+		CAN = { country_event = { id = ukc.218 days = 1 } }				
+	}	
+}
+country_event = {# We got Singapore
+	id = ukc.217
+	title = ukc.217.t
+	desc = ukc.217.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# yay
+		name = ukc.217.a
+		CAN = {	transfer_state = 336 }
+		378 = { set_state_name = "Singapore" }
+	}
+}
+country_event = {# the Germans didn't want to give us Singapore
+	id = ukc.218
+	title = ukc.218.t
+	desc = ukc.218.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# Damn them!
+		name = ukc.218.a
+		add_opinion_modifier = { target = GER modifier = CAN_hong_kong_refused_ger }
+	}
+}
+#### Status of Hong Kong ####
+country_event = {# British Want Hong Kong
+	id = ukc.219
+	title = ukc.219.t
+	desc = ukc.219.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# We don't need Malta
+		name = ukc.219.a
+		ai_chance = { factor = 40 }		
+		CAN = { country_event = { id = ukc.220 days = 1 } }				
+	}
+	option = {# Leave us alone British
+		name = ukc.219.b
+		ai_chance = { factor = 60 }		
+		CAN = { country_event = { id = ukc.221 days = 1 } }				
+	}	
+}
+country_event = {# We got Hong Kong
+	id = ukc.220
+	title = ukc.220.t
+	desc = ukc.220.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# yay
+		name = ukc.220.a
+		CAN = { transfer_state = 326 }
+	}
+}
+country_event = {# the LEC didn't want to give us Hong Kong
+	id = ukc.221
+	title = ukc.221.t
+	desc = ukc.221.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = {# Damn them!
+		name = ukc.221.a
+		add_opinion_modifier = { target = LEC modifier = CAN_hong_kong_refused_lec }
+	}
+}
+
+#Monarchy Events
+
+#Franco british union
+country_event = {
+	id = ukc.998
+	title = ukc.998.t
+	desc = ukc.998.desc
+	picture = UK_country_parliament
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ukc.998.a
+		hidden_effect = {
+			set_cosmetic_tag = 
+			every_state = {
+				limit = {
+					is_core_of = NFA
+				}
+				CAN = {
+					add_state_core = PREV
+				}
+			}
+			annex_country = { target = NFA transfer_troops = yes }
+		}
+	}
+	option = {
+		name = ukc.998.b
+		
+	}
+}
+
+#Quebec in the entente?
+country_event = {
+	id = ukc.999
+	title = ukc.999.t
+	desc = ukc.999.desc
+	picture = UK_country_parliament
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ukc.999.a
+		add_to_faction = QUE
+	}
+	option = {
+		name = ukc.999.b
+		
+	}
+}
+
+#Deal with quebec
+country_event = {
+	id = ukc.1000
+	title = ukc.1000.t
+	desc = ukc.1000.desc
+	picture = UK_country_parliament
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ukc.1000.a
+		release = QUE
+		QUE = { country_event = ukc.999 }
+	}
+	option = {
+		name = ukc.1000.b
+		puppet = QUE
+		
+	}
+	option = {
+		name = ukc.1000.c
+		466 = { remove_core_of = QUE }
+		683 = { remove_core_of = QUE }
+		hidden_effect = {
+			set_country_flag = QuebecRemains
+		}
+	}
+}
+
 #Election Events
 
 #election
@@ -414,5 +1347,189 @@ country_event = {
 	option = {
 		name = ukc.1001.d
 		set_country_flag = UKC_leftist_victory
+	}
+}
+
+### Election Polling ###
+
+#poll 1
+country_event = {
+	id = ukc.1002
+	title = ukc.1002.t
+	desc = ukc.1002.desc
+	picture = UK_country_parliament
+
+	is_triggered_only = yes
+	
+	option = {
+		name = ukc.1002.a
+		add_popularity = { ideology = national_populist popularity = 0.1 }
+		country_event = { id = UKC.1003 days = 10 }
+	}
+	option = {
+		name = ukc.1002.b
+		add_popularity = { ideology = social_conservative popularity = 0.1 }
+		country_event = { id = UKC.1003 days = 10 }
+	}
+	option = {
+		name = ukc.1002.c
+		add_popularity = { ideology = market_liberal popularity = 0.1 }
+		country_event = { id = UKC.1003 days = 10 }
+	}
+	option = {
+		name = ukc.1002.d
+		add_popularity = { ideology = social_democrat popularity = 0.1 }
+		country_event = { id = UKC.1003 days = 10 }
+	}
+}
+
+#poll 2
+country_event = {
+	id = ukc.1003
+	title = ukc.1003.t
+	desc = ukc.1003.desc
+	picture = UK_country_parliament
+
+	is_triggered_only = yes
+	
+	option = {
+		name = ukc.1003.a
+		add_popularity = { ideology = national_populist popularity = 0.1 }
+		country_event = { id = UKC.1004 days = 10 }
+	}
+	option = {
+		name = ukc.1003.b
+		add_popularity = { ideology = social_conservative popularity = 0.1 }
+		country_event = { id = UKC.1004 days = 10 }
+	}
+	option = {
+		name = ukc.1003.c
+		add_popularity = { ideology = market_liberal popularity = 0.1 }
+		country_event = { id = UKC.1004 days = 10 }
+	}
+	option = {
+		name = ukc.1003.d
+		add_popularity = { ideology = social_democrat popularity = 0.1 }
+		country_event = { id = UKC.1004 days = 10 }
+	}
+}
+
+#poll 3
+country_event = {
+	id = ukc.1004
+	title = ukc.1004.t
+	desc = ukc.1004.desc
+	picture = UK_country_parliament
+
+	is_triggered_only = yes
+	
+	option = {
+		name = ukc.1004.a
+		add_popularity = { ideology = national_populist popularity = 0.1 }
+		country_event = { id = UKC.1005 days = 10 }
+	}
+	option = {
+		name = ukc.1004.b
+		add_popularity = { ideology = social_conservative popularity = 0.1 }
+		country_event = { id = UKC.1005 days = 10 }
+	}
+	option = {
+		name = ukc.1004.c
+		add_popularity = { ideology = market_liberal popularity = 0.1 }
+		country_event = { id = UKC.1005 days = 10 }
+	}
+	option = {
+		name = ukc.1004.d
+		add_popularity = { ideology = social_democrat popularity = 0.1 }
+		country_event = { id = UKC.1005 days = 10 }
+	}
+}
+
+#poll 4
+country_event = {
+	id = ukc.1005
+	title = ukc.1005.t
+	desc = ukc.1005.desc
+	picture = UK_country_parliament
+
+	is_triggered_only = yes
+	
+	option = {
+		name = ukc.1005.a
+		add_popularity = { ideology = national_populist popularity = 0.1 }
+		country_event = { id = UKC.1006 days = 10 }
+	}
+	option = {
+		name = ukc.1005.b
+		add_popularity = { ideology = social_conservative popularity = 0.1 }
+		country_event = { id = UKC.1006 days = 10 }
+	}
+	option = {
+		name = ukc.1005.c
+		add_popularity = { ideology = market_liberal popularity = 0.1 }
+		country_event = { id = UKC.1006 days = 10 }
+	}
+	option = {
+		name = ukc.1005.d
+		add_popularity = { ideology = social_democrat popularity = 0.1 }
+		country_event = { id = UKC.1006 days = 10 }
+	}
+}
+
+#poll 5
+country_event = {
+	id = ukc.1006
+	title = ukc.1006.t
+	desc = ukc.1006.desc
+	picture = UK_country_parliament
+
+	is_triggered_only = yes
+	
+	option = {
+		name = ukc.1006.a
+		add_popularity = { ideology = national_populist popularity = 0.1 }
+		country_event = { id = UKC.1007 days = 10 }
+	}
+	option = {
+		name = ukc.1006.b
+		add_popularity = { ideology = social_conservative popularity = 0.1 }
+		country_event = { id = UKC.1007 days = 10 }
+	}
+	option = {
+		name = ukc.1006.c
+		add_popularity = { ideology = market_liberal popularity = 0.1 }
+		country_event = { id = UKC.1007 days = 10 }
+	}
+	option = {
+		name = ukc.1006.d
+		add_popularity = { ideology = social_democrat popularity = 0.1 }
+		country_event = { id = UKC.1007 days = 10 }
+	}
+}
+
+#poll 6
+country_event = {
+	id = ukc.1007
+	title = ukc.1007.t
+	desc = ukc.1007.desc
+	picture = UK_country_parliament
+
+	is_triggered_only = yes
+	
+	option = {
+		name = ukc.1007.a
+		add_popularity = { ideology = national_populist popularity = 0.1 }
+	}
+	option = {
+		name = ukc.1007.b
+		add_popularity = { ideology = social_conservative popularity = 0.1 }
+	}
+	option = {
+		name = ukc.1007.c
+		add_popularity = { ideology = market_liberal popularity = 0.1 }
+	}
+	option = {
+		name = ukc.1007.d
+		add_popularity = { ideology = social_democrat popularity = 0.1 }
 	}
 }

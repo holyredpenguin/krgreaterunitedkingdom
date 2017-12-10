@@ -1,0 +1,54 @@
+division_template = {
+	name = "Eagle Division"			
+
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		marines = { x = 1 y = 0 }
+		marines = { x = 1 y = 1 }
+		marines = { x = 1 y = 2 }
+		marines = { x = 2 y = 0 }
+		artillery = { x = 2 y = 1 }
+		artillery = { x = 2 y = 2 }
+
+	}
+	support = {
+	artillery = { x = 0 y = 0 }
+	recon = { x = 0 y = 1 }
+	engineer = { x = 0 y = 2 } 	
+	}
+}
+
+units = {
+	division = {
+		name = "1st Eagle Scout Rangers"
+		location = 
+		dicision_template = "Eagle Division"
+		start_experience_factor = 1.0
+	}
+	division = {
+		name = "2nd Eagle Scout Rangers"
+		location = 
+		dicision_template = "Eagle Division"
+		start_experience_factor = 1.0
+	}
+	division = {
+		name = "3rd Eagle Scout Rangers"
+		location = 
+		dicision_template = "Eagle Division"
+		start_experience_factor = 1.0
+	}
+	division = {
+		name = "4th Eagle Scout Rangers"
+		location = 
+		dicision_template = "Eagle Division"
+		start_experience_factor = 1.0
+	}
+	division = {
+		name = "5th Eagle Scout Rangers"
+		location = 
+		dicision_template = "Eagle Division"
+		start_experience_factor = 1.0
+	}
+}

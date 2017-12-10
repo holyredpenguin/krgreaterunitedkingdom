@@ -261,5 +261,43 @@ ideas = {
 				conscription = 0.03
 			}
 		}
+		
+		UKC_estate_tax = {
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			picture = idea_rom_carol_emptied_accounts
+			
+			modifier = {
+				consumer_goods_factor = -0.05
+			}
+		}
+		
+		UKC_revolutionary_guard = {
+			allowed = {
+				always = no
+			}
+			modifier = {
+				conscription_factor = 0.02
+				army_morale_factor = 0.1
+			}
+			removal_cost = -1
+			picture = UoB_militia_idea
+		}
+		
+		UKC_quebec = {
+			allowed = {
+				always = no
+			}
+			modifier = {
+				conscription_factor = -0.02
+				army_morale_factor = -0.1
+			}
+			removal_cost = -1
+			picture = tfv_can_conscription_crisis
+		}
 	}
 }
